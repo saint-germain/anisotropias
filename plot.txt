@@ -1,0 +1,127 @@
+plt.hist2d(dfmc.AMC,dfmc.BMC,bins=30)
+
+dfopt=pd.read_csv('optimization_mc_errors_bias_Dh_35Mpc.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ MC errors, $\sigma_q$=%d.1 deg" % (sigmaq))
+
+dfopt=pd.read_csv('optimization_paper_errors_bias_Dh_35Mpc.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ paper errors, $\sigma_q$=%d.1 deg" % (sigmaq))
+
+dfopt=pd.read_csv('optimization_no_errors_bias_Dh_35Mpc.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ no errors, $\sigma_q$=%d.1 deg" % (sigmaq))
+
+dfopt=pd.read_csv('optimization_data_errors_bias_Dh_35Mpc.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ data errors, $\sigma_q$=%d.1 deg" % (sigmaq))
+
+dfopt=pd.read_csv('optimization_with_data_errors_nobias_Dh.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ data errors NO BIAS, $\sigma_q$=%d.1 deg" % (sigmaq))
+
+dfopt=pd.read_csv('optimization_with_mc_errors_nobias_Dh.txt', index_col=0)
+dhip=np.sqrt(dfopt.Dx**2+dfopt.Dy**2+dfopt.Dz**2)
+thangle=np.arccos(dfopt.Dz/dhip)*r2d
+phangle=np.arctan2(dfopt.Dy,dfopt.Dx)*r2d
+sigmaq=np.sqrt(np.std(thangle)**2+np.std(phangle)**2)
+DSx=3.3
+DSy=-2.4
+DSz=-1.4
+dhpaper=np.sqrt(DSx**2+DSy**2+DSz**2)
+thpaper=np.arccos(DSz/dhpaper)*r2d
+phpaper=np.arctan2(DSy,DSx)*r2d
+range=np.array([(0,180),(-180,180)])
+plt.hist2d(thangle,phangle,bins=100,range=range)
+colorbar()
+#plt.scatter(theta*r2d,phi*r2d-180,color='red')
+plt.scatter(mean(thangle),mean(phangle),color='black',s=200,marker='*')
+plt.scatter(thpaper,phpaper,color='white',s=200,marker='*')
+plt.xlabel(r"$\theta$")
+plt.ylabel(r"$\phi$")
+plt.title("2D Histogram w/ MC errors NO BIAS, $\sigma_q$=%d.1 deg" % (sigmaq))
