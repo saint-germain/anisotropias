@@ -1,5 +1,7 @@
 Cepheids and SNIa are primary distance indicators
 
+https://arxiv.org/abs/1612.09263
+
 Humphreys 2013 error distance (MCMC Cepheids) http://iopscience.iop.org/article/10.1088/0004-637X/775/1/13/pdf http://iopscience.iop.org/article/10.1088/0004-637X/775/1/13/meta
 
 Rubin et al 2015 heterogeneous errors (SnIa Bayesian) http://iopscience.iop.org/article/10.1088/0004-637X/813/2/137/pdf http://iopscience.iop.org/article/10.1088/0004-637X/813/2/137/meta
@@ -7,6 +9,8 @@ Rubin et al 2015 heterogeneous errors (SnIa Bayesian) http://iopscience.iop.org/
 TF FP are secondary (Tully et al 2016) http://iopscience.iop.org/article/10.3847/0004-6256/152/2/50/meta http://iopscience.iop.org/article/10.3847/0004-6256/152/2/50/pdf -> "There are both random and systematic uncertainties in the estimate of H 0 . The largest random uncertainty ( ± 0.079 in the modulus ) lies with the zero-point calibration to the TF relation based on 33 galaxies with Cepheid or TRGB distances. The SNI a zero point is directly established through 9 Cepheid distances and less directly established through over 100 group af fi liations and has an uncertainty of ± 0.046. Then there is an uncertainty of ± 0.030 for the fi t to the mean Hubble parameter in Figure 13 . Added in quadrature, the random error is ± 0.096, 4.5% in distance and affect on H 0 . Systematic effects are harder to quantify, but the components of concern and estimates of uncertainties are the Cepheid and TRGB zero points ( ± 0.05 ) ,possible variations in SNI a properties that manifest in distance ( Rigault  et  al. 2015 ; ± 0.05 ) ,  and  uncertainties  in  the cosmological model corrections ( ± 0.027 ) . Systematics crudely add in quadrature to 0.076, 3.5% in distance and H 0 . ->
 
 The distance moduli, both for individual galaxies and again for groups, are weighted averages with individual weights w_i = 1/e_i^2 where the uncertainty in a modulus is e_i , giving total weights w_t=Sum w_i, and error on the averaged modulus e_mu = 1/w_t^1/2 (QUADRATURE, GCM). For groups with many distance measures this formal error is as small as 0.02 mag, three times smaller than reasonable expectations of systematic errors."
+
+From NED paper "Err (mag) and Est. with Err (%) represent mean of errors published, given in  units of  magnitude (m - M) , and percentage of number of estimates in total for which error  is  available" in final page. 
 
 Do not only use new data!!! Cite ned2016 paper
 
