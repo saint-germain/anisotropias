@@ -1,0 +1,46 @@
+\begin{thebibliography}{}
+\makeatletter
+\relax
+\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}
+\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@}
+  {\mn@doi@[]}}
+\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href
+  {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi
+  \endgroup}
+\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
+\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}
+\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml}
+  {dblp:#1}}
+\def\mn@eprint@#1:#2:#3:#4\@nil{\def\@tempa {#1}\def\@tempb {#2}\def\@tempc
+  {#3}\ifx \@tempc \@empty \let \@tempc \@tempb \let \@tempb \@tempa \fi \ifx
+  \@tempb \@empty \def\@tempb {arXiv}\fi \@ifundefined
+  {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
+  mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
+
+\bibitem[\protect\citeauthoryear{Dhawan, Jha  \& Leibundgut}{Dhawan
+  et~al.}{2018}]{hubsn2018}
+Dhawan S.,  Jha S.~W.,   Leibundgut B.,  {2018}, \mn@doi [{ASTRONOMY \&
+  ASTROPHYSICS}] {{10.1051/0004-6361/201731501}}, {609}
+
+\bibitem[\protect\citeauthoryear{Kourkchi \& Tully}{Kourkchi \&
+  Tully}{2017}]{gg3500}
+Kourkchi E.,  Tully R.~B.,  {2017}, \mn@doi [{ASTROPHYSICAL JOURNAL}]
+  {{10.3847/1538-4357/aa76db}}, {843}
+
+\bibitem[\protect\citeauthoryear{Speagle \& Eisenstein}{Speagle \&
+  Eisenstein}{2017a}]{photred1}
+Speagle J.~S.,  Eisenstein D.~J.,  {2017}a, \mn@doi [{MONTHLY NOTICES OF THE
+  ROYAL ASTRONOMICAL SOCIETY}] {{10.1093/mnras/stw1485}}, {469}, 1186
+
+\bibitem[\protect\citeauthoryear{Speagle \& Eisenstein}{Speagle \&
+  Eisenstein}{2017b}]{photred2}
+Speagle J.~S.,  Eisenstein D.~J.,  {2017}b, \mn@doi [{MONTHLY NOTICES OF THE
+  ROYAL ASTRONOMICAL SOCIETY}] {{10.1093/mnras/stx510}}, {469}, 1205
+
+\bibitem[\protect\citeauthoryear{Zhang \& Shields}{Zhang \&
+  Shields}{2018}]{propprob2018}
+Zhang J.,  Shields M.~D.,  {2018}, \mn@doi [{MECHANICAL SYSTEMS AND SIGNAL
+  PROCESSING}] {{10.1016/j.ymssp.2017.04.042}}, {98}, 465
+
+\makeatother
+\end{thebibliography}
