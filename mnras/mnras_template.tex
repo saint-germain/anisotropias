@@ -62,14 +62,14 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[K. T. Smith et al.]{
-Keith T. Smith,$^{1}$\thanks{E-mail: mn@ras.org.uk (KTS)}
+\author[G. Chaparro Molano et al.]{
+Germ\'an Chaparro Molano,$^{1}$\thanks{E-mail: gchaparrom@ecci.edu.co}
 A. N. Other,$^{2}$
 Third Author$^{2,3}$
 and Fourth Author$^{3}$
 \\
 % List of institutions
-$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK\\
+$^{1}$Vicerrector\'ia de Investigaci\'on, Universidad ECCI, 111311 Bogot\'a, Colombia\\
 $^{2}$Department, Institution, Street Address, City Postal Code, Country\\
 $^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
 }
@@ -97,7 +97,7 @@ No references should appear in the abstract.
 % Select between one and six entries from the list of approved keywords.
 % Don't make up new ones.
 \begin{keywords}
-keyword1 -- keyword2 -- keyword3
+Galxies: distances -- keyword2 -- keyword3
 \end{keywords}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,28 +106,50 @@ keyword1 -- keyword2 -- keyword3
 
 \section{Introduction}
 
-Efforts to reduce the uncertainty in the estimate the Hubble constant are single-method \citet{hubsn2018}.
+Efforts to reduce the uncertainty in the estimate the Hubble constant are single-method such as SNIa \citet{hubsn2018}. Bayesian analysis of systematic uncertainties for cosmology when using SNIa-derived galactic parameters (heterogeneous errors) \citet{unity}. Hubble constant MCMC estimation based on Cepheids distance determination for NGC 4258 \citet{hubngc}. \citet{hub2010} is the important hubble paper, although the original hubble estimation from redshift independent distances is \citet{huborig}. \citet{ridsn} estimates distances using snia but no redshifts. 
 
 The \texttt{emcee} affine invariant MCMC ensemble sampler \citet{emcee} has been widely used due to its usability and efficiency. Markov Chain Monte Carlo (MCMC) samplers such as \citet{emcee} have been widely used for fitting data to models. Recently, \citet{propprob2018} used \texttt{emcee} for model assessment using Bayesian and Akaike Information Criteria along with Bayes factors, focusing on small datasets, where it is not relevant to reproduce the original variance of the data. \texttt{emcee} has also been proved to be useful in recovering probabilistic models for photometric redshifts \citet{photred1,photred2} . \citet{said} has used emcee for Tully-Fisher in the southern Zone of Avoidance.
 
-Bayesian analysis of systematic uncertainties for cosmology when using SNIa-derived galactic parameters \citet{unity}
+Tully Fisher relation \citet{precisetf}
+
+GW searches \citet{gwgallist}, we should improve redshift independent distance determination .
 
 \citet{6df} attempt to predict redshift-derived distance errors within a Bayesian framework yields 26\%.
 
-Exploration of prior discrepancy modeling in model estimation \citet{priordesc}
+Exploration of prior discrepancy modeling in model estimation \citet{priordisc}
 
 Importance of distance and catalogs \citet{catetg,catspi} in:
 
+Other discrepancy measures for model selection \citet{otherdisc}. Chi2 model selection \citet{chi2ms}
 
-
-The NASA/IPAC Extragalactic Distance (NED) catalog of Redshift-Independent Distances \citet{ned} is  a catalog with the following properties
+The NASA/IPAC Extragalactic Distance (NED) catalog of Redshift-Independent Distances \citet{ned07,ned} is  a catalog with the following properties. HyperLEDA \citet{hyperleda} is a catalogue for extragalactic distances, which also includes redshift-independent distance measurements, but it is much smaller than NED. Extragalactic distance database \citet{distdb}. Changes in Hubble constant estimation using TF relation without Cepheids \citet{noceph}
 
 Determining whether a galaxy belongs to a group by analyzing their common properties \citet{gg3500} 
-Determining the spatial distribution of galaxies in order to study large-scale structure \citet{gallargescale}
 
-Studies of anisotropy be it of morphological types \citet{morphanis}
+Determining the spatial distribution of galaxies in order to study large-scale structure \citet{gallargescale} or local universe peculiar velocities \citet{localunipv}. Kinematics of nearby galaxies in void \citet{void}
 
-\citet{cosmicflows} distance errors are weighted standard deviations
+Studies of anisotropy be it of morphological types \citet{morphanis} or density-velocity \citet{nongauss} which also need to take into account instrument detection limits \citet{catmatch} and source identification \citet{baymatch}. Anisotropy hubble from HST data \citet{anishub}
+
+\citet{cosmicflows} distance errors are weighted standard deviations. \citet{locunivcf} local universe structure reconstruction Cosmicflows-1
+
+\citet{gmastro} is a widely used Bayesian linear regressor which uses a Gaussian Mixture Model to approximate the distibution of unobserved ``true'' data values and from this information estimate the regression coefficients.
+
+10\% estimated uncertainty for photometrically derived distance scale ladder \citet{hubunc}
+
+Are \citet{2mass} sources important in our analysis?
+
+What I would like to know is what the TF method is. Also get better feeling of cosmicflows. Get better feeling of linmix fit. Do stuff to hyperleda catalog? Arm-wave my way out of that?
+
+Remember that Cepheids and SNIa are primary distance indicators. TF FP are secondary 
+
+
+\citet{tf07dist}
+
+
+
+ \citet{chaparro18}, \citet{tecciencia}, \citet{gelmanppd} \citet{brooks} \citet{tforig}
+
+
 
 This is a simple template for authors to write new MNRAS papers.
 See \texttt{mnras\_sample.tex} for a more complex example, and \texttt{mnras\_guide.tex}
