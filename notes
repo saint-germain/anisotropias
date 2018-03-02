@@ -1,21 +1,12 @@
-Cepheids and SNIa are primary distance indicators
 
 https://arxiv.org/abs/1612.09263
 
-Humphreys 2013 error distance (MCMC Cepheids) http://iopscience.iop.org/article/10.1088/0004-637X/775/1/13/pdf http://iopscience.iop.org/article/10.1088/0004-637X/775/1/13/meta
-
-Rubin et al 2015 heterogeneous errors (SnIa Bayesian) http://iopscience.iop.org/article/10.1088/0004-637X/813/2/137/pdf http://iopscience.iop.org/article/10.1088/0004-637X/813/2/137/meta
 
 TF FP are secondary (Tully et al 2016) http://iopscience.iop.org/article/10.3847/0004-6256/152/2/50/meta http://iopscience.iop.org/article/10.3847/0004-6256/152/2/50/pdf -> "There are both random and systematic uncertainties in the estimate of H 0 . The largest random uncertainty ( ± 0.079 in the modulus ) lies with the zero-point calibration to the TF relation based on 33 galaxies with Cepheid or TRGB distances. The SNI a zero point is directly established through 9 Cepheid distances and less directly established through over 100 group af fi liations and has an uncertainty of ± 0.046. Then there is an uncertainty of ± 0.030 for the fi t to the mean Hubble parameter in Figure 13 . Added in quadrature, the random error is ± 0.096, 4.5% in distance and affect on H 0 . Systematic effects are harder to quantify, but the components of concern and estimates of uncertainties are the Cepheid and TRGB zero points ( ± 0.05 ) ,possible variations in SNI a properties that manifest in distance ( Rigault  et  al. 2015 ; ± 0.05 ) ,  and  uncertainties  in  the cosmological model corrections ( ± 0.027 ) . Systematics crudely add in quadrature to 0.076, 3.5% in distance and H 0 . ->
 
 The distance moduli, both for individual galaxies and again for groups, are weighted averages with individual weights w_i = 1/e_i^2 where the uncertainty in a modulus is e_i , giving total weights w_t=Sum w_i, and error on the averaged modulus e_mu = 1/w_t^1/2 (QUADRATURE, GCM). For groups with many distance measures this formal error is as small as 0.02 mag, three times smaller than reasonable expectations of systematic errors."
 
 From NED paper "Err (mag) and Est. with Err (%) represent mean of errors published, given in  units of  magnitude (m - M) , and percentage of number of estimates in total for which error  is  available" in final page. 
-
-Do not only use new data!!! Cite ned2016 paper
-
-Add  “galaxies - distances” to keywords
-
 
 From NED-D "Redshift: appears only in cases where the distance modulus is published as a "luminosity distance modulus", as provided mostly for Type Ia supernova (SNIa), showing the target redshift used to transform each "luminosity distance modulus" given to the corresponding "metric distance", via m-M(L) = [5 logD/(1+z)]/5."
 
@@ -34,4 +25,4 @@ TRGB, CMD, RR Lyrae, Eclipsing Binary, Red Clump, PNLF, SZ effect, Brightest Sta
 
 Check for both those things, for TF shouldn't be a problem, but still...
 
-"Tully -­‐ Fisher: introduced by Tully & Fisher (1977), based on the absolute blue magnitudes of spiral galaxies, which depend on their apparent blue magnitude, m B , and their maximum r otational velocity, sigma: M B = -­‐ 7.0 log sigma -­‐ 1.8 ( e.g. , Karachentsev et al. 2003). So, the galaxy NGC 0247 has an absolute blue magnitude of M B = -­‐ 18.2, based on its rotational velocity, sigma = 222 km s -­‐ 1 . With an apparent blue magnitude of m B = 9.86, NGC 0247 has a distance modulus of (m -­‐ M) B = 28.1, f or a distance of 4.1 Mpc"
+"Tully -‐ Fisher: introduced by Tully & Fisher (1977), based on the absolute blue magnitudes of spiral galaxies, which depend on their apparent blue magnitude, m B , and their maximum r otational velocity, sigma: M B = - 7.0 log sigma -‐ 1.8 ( e.g. , Karachentsev et al. 2003). So, the galaxy NGC 0247 has an absolute blue magnitude of M B = -‐ 18.2, based on its rotational velocity, sigma = 222 km s -‐ 1 . With an apparent blue magnitude of m B = 9.86, NGC 0247 has a distance modulus of (m -‐ M) B = 28.1, f or a distance of 4.1 Mpc"
