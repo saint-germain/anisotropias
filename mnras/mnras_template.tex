@@ -129,7 +129,7 @@ Determining the spatial distribution of galaxies in order to study large-scale s
 
 Studies of anisotropy be it of morphological types \citet{morphanis} or density-velocity \citet{nongauss} which also need to take into account instrument detection limits \citet{catmatch} and source identification \citet{baymatch}. Anisotropy hubble from HST data \citet{anishub}
 
-\citet{cosmicflows} distance errors are weighted standard deviations. \citet{locunivcf} local universe structure reconstruction Cosmicflows-1
+\citet{cosmicflows} distance errors are weighted standard deviations across different methods. Individual errors are not available for all methods. \citet{locunivcf} local universe structure reconstruction Cosmicflows-1
 
 \citet{gmastro} is a widely used Bayesian linear regressor which uses a Gaussian Mixture Model to approximate the distibution of unobserved ``true'' data values and from this information estimate the regression coefficients.
 
@@ -159,6 +159,14 @@ in context, cites relevant earlier studies in the field by \citet{photred2},
 and describes the problem the authors aim to solve \citep[e.g.][]{photred1}.
 
 \section{Methods, Observations, Simulations etc.}
+
+From here on, when we mention distance measurements in the NED-D catalog, we will be excluding from our analysis measurements that require the target redshift to calculate the distance, as indicated in the \texttt{redshift (z)} column.
+
+In the NED-D database, $\sim16000$ galaxies ($\sim9$\%) have more than one distance measurement, $\sim1800$ galaxies ($\sim1$\%) have more than 12  distance measurements, and $~180$ galaxies ($\sim0.1$\%) have distances measurements using more than 6 different methods. \\
+
+For many galaxies, the random error for each measurement is not representative of the scatter across different measurements, even when considering measurements that use the same method. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in distance space. For this reason, we consider that the best approach to consider the effects of random and scattering errors in catalog-wide, multi-method distance analyses is to take bootstrap samples of the posterior distribution for each extragalactic distance. The posterior distribution can be obtained by drawing distance samples from the mixture of the log-normal distributions corresponding to each measurement.\\
+
+However, the previous approach, while thorough, is not very efficient
 
 Normally the next section describes the techniques the authors used.
 It is frequently split into subsections, such as Section~\ref{sec:maths} below.
