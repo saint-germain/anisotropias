@@ -58,7 +58,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[Short title, max. 45 characters]{MNRAS \LaTeXe\ template -- title goes here}
+\title[Predicting extragalactic distance errors]{Predicting extragalactic distance errors using Bayesian inference in multi-measurement catalogs}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -96,7 +96,7 @@ No references should appear in the abstract.
 % Select between one and six entries from the list of approved keywords.
 % Don't make up new ones.
 \begin{keywords}
-Galxies: distances -- keyword2 -- keyword3
+Galaxies: distances -- keyword2 -- keyword3
 \end{keywords}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,13 +160,40 @@ and describes the problem the authors aim to solve \citep[e.g.][]{photred1}.
 
 \section{Methods, Observations, Simulations etc.}
 
-From here on, when we mention distance measurements in the NED-D catalog, we will be excluding from our analysis measurements that require the target redshift to calculate the distance, as indicated in the \texttt{redshift (z)} column.
+From here on, when we mention distance measurements in the NED-D catalog, we will be excluding from our analysis measurements that require the target redshift to calculate the distance, as indicated in the \texttt{redshift (z)} column.\\
 
 In the NED-D database, $\sim16000$ galaxies ($\sim9$\%) have more than one distance measurement, $\sim1800$ galaxies ($\sim1$\%) have more than 12  distance measurements, and $~180$ galaxies ($\sim0.1$\%) have distances measurements using more than 6 different methods. \\
 
-For many galaxies, the random error for each measurement is not representative of the scatter across different measurements, even when considering measurements that use the same method. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in distance space. For this reason, we consider that the best approach to consider the effects of random and scattering errors in catalog-wide, multi-method distance analyses is to take bootstrap samples of the posterior distribution for each extragalactic distance. The posterior distribution can be obtained by drawing distance samples from the mixture of the log-normal distributions corresponding to each measurement.\\
+For many galaxies, the random error for each measurement $\epsilon_i$ (for $i=1,...,N$, where $N$ is the number of distance measurements per galaxy) is not representative of the scatter across measurements, even when considering measurements that use the same method. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in distance space. For this reason, we consider that the best approach to consider the effects of random and scattering errors in catalog-wide, multi-method distance analyses is to take bootstrap samples of the posterior distribution for each extragalactic distance. The posterior distribution can be obtained by drawing distance samples from the mixture of the log-normal distributions corresponding to each measurement.\\
 
-However, the previous approach, while thorough, is not very efficient
+However, this method is not very efficient for a standardized treatment of errors. It is more convenient to treat each extragalactic distance as a random variable with a Gaussian Distribution with a single-valued  $\sigma$ measure of the uncertainty in the estimation of an extragalactic distance.\\
+ 
+ For this reason we compared four methods for estimating $D,\,\sigma_D$: two of which use robust measures of the posterior distribution of each extragalactic distance (H, M) , and two more common methods based on propagation of errors (P, Q). Method H takes $D$ as the median of the posterior and $\sigma_D$ as the half-distance (H) between the 84th and 16th percentiles of the posterior. Method M takes $D$ as the median of the posterior and $\sigma_D$ as the median absolute deviation (M) of the posterior.\\
+ 
+Method P consists on calculating $D$ from the weighted mean distance modulus $\bar{\mu}^*$ with weights $w_i=\epsilon_i^{-2}$, where $\epsilon_i$ are the distance modulus errors for each galaxy. $\sigma_D$ is calculated by propagation (P) of measurement errors  i.e. from the uncertainty of the weighted mean \citep{cosmicflows},
+\begin{equation}
+\sigma_D^P=0.461\,\bar{D}^*\,\left(\sum_i^Nw_i\right)^{-1/2} \ ,
+\end{equation}
+Method P does not take into account the scatter in distance measurements for single galaxies, which is why method Q calculates $D$ same as method P, but $\sigma_D$ is calculated as the sum in quadrature (Q) of the propagated uncertainty of the weighted mean and the propagated unbiased weighted sample variance $\sigma_D^*$:
+\begin{equation}
+\sigma_D^Q=\left[ \left(\sigma_D^P\right)^2+\left(\sigma_D^*\right)^2\right]^{1/2} \ .
+\end{equation}
+Here $\sigma^*$ is calculated as  \citep{wstdev},
+\begin{equation}
+\sigma^*=0.461\,\bar{D}^*\,\sqrt{\frac{N}{N-1.5}\frac{\sum_i^Nw_i(\mu_i-\bar{\mu}^*)^2}{\sum_i^Nw_i}}\ .
+\end{equation}
+
+
+Figure XX shows that the width in the posterior distribution of each extragalactic distance is best explained using the H method, whereas the less robust P and Q methods under-predict the variance for galaxies in the whole distance range. The M method also under-predicts the variance, but being a robust method, it is less sensitive to outliers, as seen in Figure XXXaorborc.\\
+
+We can further compare the Q and M methods (remember to do a regplot to argue for the M method)
+
+Given that $\sigma_H$ is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_H$ realizations. This is shown in Figure XXX.
+
+talk about this using only TF
+
+
+talk about the median used to calculate H (is it the median or the mean, i think its actually the median but i can't remember)!!
 
 Normally the next section describes the techniques the authors used.
 It is frequently split into subsections, such as Section~\ref{sec:maths} below.
