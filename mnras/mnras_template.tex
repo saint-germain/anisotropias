@@ -198,16 +198,42 @@ Here $\sigma^*_D$ is calculated as  \citep{wstdev},
 Figure~\ref{fig:comp} shows that the width in the posterior distribution of each extragalactic distance is best explained using the H method, whereas the less robust P and Q methods under-predict the variance for galaxies in the whole distance range. The M method also under-predicts the variance, but being a robust method, it is not as sensitive to outliers as the mehods P and Q, as seen in the case of NGC 1558 in Figure~\ref{fig:comp}. \\
 
 \begin{figure*}
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
+
 	\includegraphics[scale=0.7]{comp}
     \caption{This is an example figure. Captions appear below each figure.
 	Give enough detail for the reader to understand what they're looking at,
 	but leave detailed discussion to the main body of the text.}
     \label{fig:comp}
 \end{figure*}
-We can further compare the Q and M methods (remember to do a regplot to argue for the M method)
+
+\begin{figure}
+
+	\includegraphics[scale=0.7]{hqp}
+    \caption{This is an example figure. Captions appear below each figure.
+	Give enough detail for the reader to understand what they're looking at,
+	but leave detailed discussion to the main body of the text.}
+    \label{fig:hqp}
+\end{figure}
+
+\begin{figure}
+
+	\includegraphics[scale=0.7]{qm}
+    \caption{This is an example figure. Captions appear below each figure.
+	Give enough detail for the reader to understand what they're looking at,
+	but leave detailed discussion to the main body of the text.}
+    \label{fig:qm}
+\end{figure}
+
+\begin{figure}
+
+	\includegraphics[scale=0.7]{ee}
+    \caption{This is an example figure. Captions appear below each figure.
+	Give enough detail for the reader to understand what they're looking at,
+	but leave detailed discussion to the main body of the text.}
+    \label{fig:qm}
+\end{figure}
+
+Figure~\ref{fig:hqp} shows that distance errors grow linearly with distance. Furthermore, the quadrature (Q) and propagation (P) methods underpredict distance errors for most galaxies in the sample. Figure~\ref{fig:qm} shows that method Q underpredicts distance errors with respect to the median absolute deviation method (M), which also yields a tighter linear correlation to extragalactic distance due to its robustness.\\
 
 Given that $\sigma_D$ calculated using the H method is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_D^H$ realizations. Figure XXX shows that the variance of the estimated error is proportional to the distance. This will be relevant in Section XXX when we construct a predictive model for unknown errors.\\
 
@@ -275,9 +301,7 @@ the final conclusions which the authors draw from their work.
 
 \section*{Acknowledgements}
 
-The Acknowledgements section is not numbered. Here you can thank helpful
-colleagues, acknowledge funding agencies, telescopes and facilities used etc.
-Try to keep it short.
+This research has made use of the NASA/IPAC Extragalactic Database (NED), which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
