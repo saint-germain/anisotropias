@@ -165,9 +165,9 @@ and describes the problem the authors aim to solve \citep[e.g.][]{photred1}.
 
 From here on, when we mention distance measurements in the NED-D catalog, we will be excluding from our analysis measurements that require the target redshift to calculate the distance, as indicated in the \texttt{redshift (z)} column.\\
 
-In the NED-D database, $\sim16000$ galaxies ($\sim9$\%) have more than one distance measurement, $\sim1800$ galaxies ($\sim1$\%) have more than 12  distance measurements, and $~180$ galaxies ($\sim0.1$\%) have distances measurements using more than 6 different methods. \\
+In the NED-D database, $\sim16000$ galaxies ($\sim9$\%) have more than one distance measurement, $\sim1800$ galaxies ($\sim1$\%) have more than 12  distance measurements, and $~180$ galaxies ($\sim0.1$\%) have distances measurements using more than 6 different methods. Even though our analysis for error estimation can be used across different distance determination methods for single galaxies, we think that it is more informational to separate the analysis by method.\\
 
-
+In this section we will focus on galaxies whose distances have been measured using the Tully-Fisher method. The reason is that out of all distance determination methods listed in the NED-D database, it has the largest number of galaxies with non-reported distance modulus errors (818).\\
 
 For many galaxies, the random error for each distance modulus measurement $\epsilon_i$ (for $i=1,...,N$, where $N$ is the number of distance measurements per galaxy) is not representative of the scatter across measurements, even when considering the same method for determining distances. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in distance space. For this reason, we consider that the best approach to consider the effects of random and scattering errors in catalog-wide, multi-method distance analyses is to take bootstrap samples of the posterior distribution for each extragalactic distance $P(D)$. The posterior distribution can be obtained by drawing distance modulus samples from $P(\mu)$, which is the unweighted mixture of normal distributions corresponding to each distance modulus measurement $\mu_i$,
 \[\mu\sim\sum_i^N \mathcal{N}(\mu_i,\epsilon_i^2)\ ,\]
@@ -200,42 +200,34 @@ Figure~\ref{fig:comp} shows that the width in the posterior distribution of each
 \begin{figure*}
 
 	\includegraphics[scale=0.7]{comp}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
+    \caption{Comparison of extragalactic distance posterior distribution draws and modeled distributions for UGC 06667, NGC 1558, UGC 08186, and UGC 12792 using the Tully-Fisher Method for distance determination in NED-D. The four methods used for approximating the posterior distribution (H, M, P, and Q) are described in the text. }
     \label{fig:comp}
 \end{figure*}
 
 \begin{figure}
 
 	\includegraphics[scale=0.7]{hqp}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with more than 5 TF distance measurements in NED-D according to the H, Q, P error models.}
     \label{fig:hqp}
 \end{figure}
 
 \begin{figure}
 
 	\includegraphics[scale=0.7]{qm}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with more than 5 TF distance measurements in NED-D according to the Q, M error models.}
     \label{fig:qm}
 \end{figure}
 
 \begin{figure}
 
 	\includegraphics[scale=0.7]{ee}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
+    \caption{Predicted extragalactic distance errors vs. variance of the error as determined by the H and M methods. }
     \label{fig:qm}
 \end{figure}
 
 Figure~\ref{fig:hqp} shows that distance errors grow linearly with distance. Furthermore, the quadrature (Q) and propagation (P) methods underpredict distance errors for most galaxies in the sample. Figure~\ref{fig:qm} shows that method Q underpredicts distance errors with respect to the median absolute deviation method (M), which also yields a tighter linear correlation to extragalactic distance due to its robustness.\\
 
-Given that $\sigma_D$ calculated using the H method is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_D^H$ realizations. Figure XXX shows that the variance of the estimated error is proportional to the distance. This will be relevant in Section XXX when we construct a predictive model for unknown errors.\\
+Given that $\sigma_D$ calculated using the H method is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_D$ realizations. Figure~\ref{fig:ee} shows that the variance of the estimated error is proportional to the error for the H and M methods. This will be relevant in Section XXX when we construct a predictive model for unknown errors.\\
 
 talk about this using only TF
 
@@ -264,17 +256,7 @@ worry about the exact layout, which will be handled by the publishers.
 Figures are referred to as e.g. Fig.~\ref{fig:example_figure}, and tables as
 e.g. Table~\ref{tab:example_table}.
 
-% Example figure
-\begin{figure}
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{example}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
-    \label{fig:example_figure}
-\end{figure}
+
 
 % Example table
 \begin{table}
