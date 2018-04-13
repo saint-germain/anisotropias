@@ -126,7 +126,7 @@ Galaxies: distances -- keyword2 -- keyword3
 %  \citet{said} has used emcee for Tully-Fisher in the southern Zone of Avoidance.
 %\citet{hyperleda} does not give a prescription for error estimation.
 
-% UNUSED - which also need to take into account instrument detection limits \citet{catmatch} and source identification \citet{baymatch}. Importance of distance and catalogs \citet{catetg,catspi} in:
+% UNUSED - which also need to take into account instrument detection limits \citet{catmatch} and source identification \citet{baymatch}. Importance of distance and catalogs \citet{catetg,catspi} in: Exploration of prior discrepancy modeling in model estimation \citet{priordisc}
 
 Understanding the uncertainties in redshift-independent extragalactic distance measurements is absolutely necessary before reporting statistically sound conclusions regarding the structure of the local universe \citep{void,locunivcf,nongauss,6df,localunipv,said,gg3500}, large scale structure \citep{anishub,gallargescale,morphanis,tecciencia,bayesh}, and events like transient gravitational wave detections \citep{gwgallist}. Hubble constant estimations have been using increasingly sophisticated statistical tools for primary distance determination methods, such as SNIa \citep{ridsn,unity,hubsn2018}, Cepheids \citet{hubngc} or both \citep{riess}. Although most estimates of the Hubble constant use Cepheid calibration for calibrating secondary methods \citep{hubunc,huborig,hub2010}, \citet{noceph} have explored changes in Hubble constant estimation using the Tully-Fisher relation (TF) relation without Cepheid calibration. Secondary methods for extragalactic distance determination like the TF relation, or the Fundamental Plane (FP) have recently become more precise thanks to increasing volumes of data from surveys like 6dF \citep{6df}  and  2MASS \citep{2mass,tf07dist} together with Spitzer data \citep{sorce}, along with improved statistical methods \citep{precisetf}. \\
 
@@ -138,7 +138,7 @@ For many galaxies in all three catalogs, the random error for each distance modu
 
 Here go the sections.
 
-% is CF in NED-D? cite number of methods per catalog? important to add to appendix supplementary figures to complement the multi-method analysis for hyperleda, all ned-d and cosmicflows. say that we made new data tables?
+% is CF in NED-D? cite number of methods per catalog? important to add to appendix supplementary figures to complement the multi-method analysis for hyperleda, all ned-d and cosmicflows. say that we made new data tables? create plots for those tables. also try quadrature model with zero setting systematic error?
 
 
 %All papers should start with an Introduction section, which sets the work in context, cites relevant earlier studies in the field by \citet{photred2}, and describes the problem the authors aim to solve \citep[e.g.][]{photred1}.
@@ -219,31 +219,40 @@ Distance errors grow linearly with distance, as seen in Fig.~\ref{fig:hqp}. This
 
 Given that $\sigma_D$ calculated using the H method is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_D$ realizations. Fig.~\ref{fig:ee} shows that the variance of the estimated error is proportional to the error for the H and M methods. This will be relevant in Section~\ref{sec:predbay} when we construct a predictive model for non-reported errors.
 
-\section{Predictive Bayesian Model for missing errors}
+\section{Predictive Bayesian Models for missing errors}
 \label{sec:predbay} % used for referring to this section from elsewhere
 
-As seen in Figs.~\ref{fig:hqp} and \ref{fig:qm}, TF distance errors estimated using the robust methods H and M grow linearly with distance. This means that we should be able to predict missing distance errors for galaxies in NED-D. For this reason we try out several Bayesian models using the \texttt{emcee} affine invariant Markov Chain Monte Carlo (MCMC) ensemble sampler \citep{emcee}, which has been widely used due to its usability and efficiency. Recently,\texttt{emcee} has also been proved to be useful in recovering probabilistic models for photometric redshifts \citet{photred1,photred2}. Since we want to be able to predict non-reported errors, our model selection is based on posterior predictive checks, i.e. we rely on models that can create synthetic datasets similar to the original dataset \citep{gelmanppd}. This allows us to reproduce the original variance of the error (Fig.~\ref{fig:ee}. Other Bayesian analysis tools like LINMIX  \citep{gmastro}, which is widely used in astronomy for approximating unobserved data does not use posterior predictive checks. This is also the case in the work of \citet{propprob2018} and \citet{bayesh}, where they used \texttt{emcee} for model assessment using Bayesian and Akaike Information Criteria along with Bayes factors while focusing on small datasets, wthout attempting to reproduce the original variance of the data. \\
+As seen in Figs.~\ref{fig:hqp} and \ref{fig:qm}, TF distance errors estimated using the robust methods H and M grow in a roughly linear fashion with distance, but are randomly distributed around this trend line. For this reason we try out several Bayesian models in order to be able to predict missing distance errors. For this, we use the \texttt{emcee} affine invariant Markov Chain Monte Carlo (MCMC) ensemble sampler \citep{emcee}. Recently, \texttt{emcee} has been proved to be useful in obtaining probabilistic estimations for photometric redshifts \citet{photred1,photred2}. Since we want to be able to predict non-reported errors, our model selection is based on posterior predictive checks, i.e. we rely on models that can create synthetic datasets similar to the original dataset \citep{gelmanppd}. This allows us to reproduce the original variance of the error (Fig.~\ref{fig:ee}. Many Bayesian analyses often do not use posterior predictive checks, like in the work of \citet{propprob2018} and \citet{bayesh}, where they used \texttt{emcee} for posterior sampling, and using Bayesian and Akaike Information Criteria along with Bayes factors for model assessment, but without attempting to reproduce the original variance of the data. This is also the case in other Bayesian tools like LINMIX  \citep{gmastro}, which is widely used in astronomy for approximating unobserved data.  \\
 
-We assume that the probability distribution of $\sigma_D$ for each galaxy is normal, with variance $\sigma_\sigma$ and mean $\hat{\sigma}_{D}$, 
-\[P(\sigma_D)=\mathcal{N}(\hat{\sigma}_D,\sigma_\sigma^2)\ .\]
-Our likelihood function is the joint probability that the full distance-error dataset with $m$ galaxies is generated by the above probability, for $\hat{\sigma}_D,\sigma_\sigma$ calculated from a single model depending on the distance $D_G$ and a set of parameters $\pmb{\theta}$,
-\[P(\sigma_D|D_G,\pmb{\theta})=\prod_i^mP(\sigma_D|D_{Gi},\pmb{\theta})\ .\]
+First we assume that for a galaxy $j$ the distance error $\sigma_{Dj}$ is a random normal variable, with variance $\sigma_{\sigma j}$ and mean $\hat{\sigma}_{Dj}$, 
+\begin{equation}
+P(\sigma_{Dj}|\hat{\sigma}_{Dj},\sigma_{\sigma j})=\mathcal{N}(\hat{\sigma}_{Dj},\sigma_{\sigma j}^2)\ .
+	\label{eq:prob}
+\end{equation}
+Our likelihood function is the joint probability that each of the $\sigma_D=\{\sigma_{Dj}\}$ in the original dataset of $m$ galaxies is generated by the above probability,  
+\begin{equation}
+ P(\sigma_{D}|\hat{\sigma}_{D},\sigma_{\sigma})=\prod_j^mP(\sigma_{Dj}|\hat{\sigma}_{Dj},\sigma_{\sigma j})
+\end{equation}
+We want to test the hypothesis mentioned above that all errors and their variances $(\hat{\sigma}_D=\{\hat{\sigma}_{Dj}\},\ \sigma_\sigma=\{\sigma_{\sigma j}\})$ can be estimated from a single model depending on the extragalactic distances $D_G=\{D_{Gj}\}$ and a set of distance-independent parameters $\pmb{\theta}$. Thus the likelihood can be expressed as,
+\[P(\sigma_D|D_G,\pmb{\theta})=\prod_j^mP(\sigma_{Dj}|D_{Gj},\pmb{\theta})\ .\]
 Following Bayes' theorem we can compute the posterior probability up to a constant,
 \[P(\pmb{\theta}|D_G,\sigma_D)\propto P(\pmb{\theta})P(\sigma_D|D_G,\pmb{\theta})\ .\]
-Due to the simplicity of the models used here, we will only use conservative (flat) priors.\\
+Due to the simplicity of the models used here, we will only use conservative (flat) priors. From our analysis of Fig.~\ref{fig:ee}, all our models take $\sigma_\sigma=f\sigma_D$, where $f$ is one of the parameters in $\pmb{\theta}$. On the other hand, our models will differ by the proposed functional forms of $\hat{\sigma}_D(D_G,\pmb{\theta})$.\\
 
-%explicitly write priors
+We obtain a computationally credible sampling of the posterior probability by removing the burn-in steps of the random walk according to the autocorrelation time. We can then create synthetic datasets by drawing a parameter sample $\pmb{\theta}_k$ from the posterior and using it to draw from the likelihood to create a new dataset, i. e. drawing new $\sigma_{Dj,s}$ from the probability distribution for all galaxies in the original dataset using equation~\ref{eq:prob}. We then assess the validity of the model by comparing synthetic data with the observed (i. e. original) data. This comparison is done by using a discrepancy measure $\mathcal{D}(\sigma_D|\pmb{\theta}_k)$ between data and model-derived expected values for the same data $e=\{e_j(\pmb{\theta}_k)\}$, where $\theta_k$ is drawn from the posterior distribution and $\sigma_D$ can be the observed errors or the model-generated synthetic errors. The discrepancy can be calculated using a statistic like $\chi^2$ \citep{chi2ms,otherdisc}, but here we will work with the Freeman-Tukey discrepancy since it is weight independent \citep{brooks}, 
+\[\mathcal{D}(\sigma_D|\pmb{\theta}_k)=\sum_j^m(\sqrt{\sigma_{Dj}\vphantom{e_j(\pmb{\theta}_k)}}-\sqrt{e_j(\pmb{\theta}_k)})^2\]
+For each parameter draw $k$, it is possible to compare the symulated discrepancy with the observed discrepancy. If the model is representative of the data, then for many parameter draws, the symulated and observed discrepancies should be similar. We can then calculate a Bayesian ``$p$-value'' as the ratio of ``draws when the observed discrepancies are larger than the synthetic discrepancies'' to ``total draws''. If this Bayesian $p$-value is too close to 0 or to 1 we can reject the model, otherwise we cannot reject the model, as it is generating synthetic data that is similar to the original data. This is better visualized using a discrepancy plot, where for each draw $k$, a synthetic discrepancy is paired with its corresponding observed discrepancy. If the discrepancy points are roughly equally distributed about the $\mathcal{D}_\mathrm{obs}=\mathcal{D}_\mathrm{sym}$ line, then we cannot reject the model.\\
 
-Our first model is based on the (somewhat naive) hypothesis that there are are distinct systematic and random contributions to the distance measurement error, both of which are normally distributed. For this reason, they are added in quadrature, 
+
+Our first model is based on the (somewhat naive) hypothesis that there are are distinct systematic and random contributions to the distance measurement error, both of which are normally distributed. For this reason they are added in quadrature, 
 \[\sigma_D^2=\sigma_s^2+\sigma_r^2\ .\]
-If the systematic error is a scale factor error, as Fig.~\ref{fig:hqp} suggests, $\sigma_r=fD$, where the scale factor $f$ and the random error $\sigma_r$ are constant. We then use \texttt{emcee} to sample the posterior over the parameter set $\pmb{\theta}=(f,\sigma_r)$.
+If the systematic error is a scale factor error as Fig.~\ref{fig:hqp} suggests, $\sigma_r=sD$ where the scale factor $s$ and the random error $\sigma_r$ are independent of the distance. We then use \texttt{emcee} to sample the posterior over the parameter set $\pmb{\theta}=(f,s,\sigma_r)$. 
 
 Several models in order to reach a predictive model. Central limit theorem?
 
-   \citet{brooks}. Exploration of prior discrepancy modeling in model estimation \citet{priordisc}, maybe not needed?
-Other discrepancy measures for model selection \citet{otherdisc}. Chi2 model selection \citet{chi2ms}. \citet{gelman2003} and \citet{ppcinf} and for using posterior predictive checks for inference and prediction
+\citet{gelman2003} and \citet{ppcinf} and for using posterior predictive checks for inference and prediction
 
-
+%explicitly write priors
 
 %Figures are referred to as e.g. Fig.~\ref{fig:example_figure}, and tables as
 %e.g. Table~\ref{tab:example_table}.
@@ -270,8 +279,7 @@ Other discrepancy measures for model selection \citet{otherdisc}. Chi2 model sel
 
 \section{Conclusions}
 
-The last numbered section should briefly summarise what has been done, and describe
-the final conclusions which the authors draw from their work.
+Discrepancy plots should be more widely used 
 
 \section*{Acknowledgements}
 
