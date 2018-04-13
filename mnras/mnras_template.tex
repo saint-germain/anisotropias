@@ -185,6 +185,8 @@ Without loss of generality, we will focus on galaxies whose distances have been 
 
 Even though our analysis for error estimation can be used to combine distance measurements using different methods for single galaxies, we think that it is more meaningful to separate the analysis by method. A full discussion of our error estimation method applied to multi-method measurements in the HyperLEDA, NED-D and Cosmicflows-3 is given in the appendix.\\
 
+% do our thing first for individual methods and then across methods? easier for cosmicflows
+
 Fig.~\ref{fig:comp} shows that the center and variance of the posterior distribution of each extragalactic distance is best explained using the H method, whereas the less robust P and Q methods under-predict the variance for galaxies in the whole distance range. The M method also under-predicts the variance, but being a robust method, it is not as sensitive to outliers as the mehods P and Q, as seen in the case of NGC 1558 in Fig.~\ref{fig:comp}. For the more symmetrical posterior distribution of UGC 12792, the M and Q methods predict the same center and variance. \\
 
 \begin{figure*}
@@ -219,12 +221,12 @@ Distance errors grow linearly with distance, as seen in Fig.~\ref{fig:hqp}. This
 
 Given that $\sigma_D$ calculated using the H method is obtained from many realizations from the posterior distribution of extragalactic distances, it is also possible to calculate its variance as the half-distance between the 84th and 16th percentile of $\sigma_D$ realizations. Fig.~\ref{fig:ee} shows that the variance of the estimated error is proportional to the error for the H and M methods. This will be relevant in Section~\ref{sec:predbay} when we construct a predictive model for non-reported errors.
 
-\section{Predictive Bayesian Models for missing errors}
+\section{Predictive Bayesian Models for TF missing errors}
 \label{sec:predbay} % used for referring to this section from elsewhere
 
-As seen in Figs.~\ref{fig:hqp} and \ref{fig:qm}, TF distance errors estimated using the robust methods H and M grow in a roughly linear fashion with distance, but are randomly distributed around this trend line. For this reason we try out several Bayesian models in order to be able to predict missing distance errors. For this, we use the \texttt{emcee} affine invariant Markov Chain Monte Carlo (MCMC) ensemble sampler \citep{emcee}. Recently, \texttt{emcee} has been proved to be useful in obtaining probabilistic estimations for photometric redshifts \citet{photred1,photred2}. Since we want to be able to predict non-reported errors, our model selection is based on posterior predictive checks, i.e. we rely on models that can create synthetic datasets similar to the original dataset \citep{gelmanppd}. This allows us to reproduce the original variance of the error (Fig.~\ref{fig:ee}. Many Bayesian analyses often do not use posterior predictive checks, like in the work of \citet{propprob2018} and \citet{bayesh}, where they used \texttt{emcee} for posterior sampling, and using Bayesian and Akaike Information Criteria along with Bayes factors for model assessment, but without attempting to reproduce the original variance of the data. This is also the case in other Bayesian tools like LINMIX  \citep{gmastro}, which is widely used in astronomy for approximating unobserved data.  \\
+As seen in Figs.~\ref{fig:hqp} and \ref{fig:qm}, TF distance errors estimated using the robust methods H and M grow in a roughly linear fashion with distance, but are randomly distributed around this trend line. For this reason we try out several Bayesian models in order to be able to predict missing distance errors. For this, we use the \texttt{emcee} affine invariant Markov Chain Monte Carlo (MCMC) ensemble sampler \citep{emcee}. Recently, \texttt{emcee} has been proved to be useful in obtaining probabilistic estimations for photometric redshifts \citet{photred1,photred2}. Since we want to be able to predict non-reported errors, our model selection is based on posterior predictive checks, i.e. we rely on models that can create synthetic datasets similar to the original dataset \citep{gelmanppd}. This allows us to reproduce the original variance of the error (Fig.~\ref{fig:ee}. Many Bayesian analyses often do not use posterior predictive checks, like in the work of \citet{propprob2018} and \citet{bayesh}, where they used \texttt{emcee} for posterior sampling, and using Bayesian and Akaike Information Criteria along with Bayes factors for model assessment, but without attempting to reproduce the original variance of the data. This is also the case in other Bayesian tools like Linmix  \citep{gmastro}, which is widely used in astronomy for approximating unobserved data.  \\
 
-First we assume that for a galaxy $j$ the distance error $\sigma_{Dj}$ is a random normal variable, with variance $\sigma_{\sigma j}$ and mean $\hat{\sigma}_{Dj}$, 
+First we assume that for any galaxy $j$ the distance error $\sigma_{Dj}$ is a random normal variable, with variance $\sigma_{\sigma j}$ and mean $\hat{\sigma}_{Dj}$, 
 \begin{equation}
 P(\sigma_{Dj}|\hat{\sigma}_{Dj},\sigma_{\sigma j})=\mathcal{N}(\hat{\sigma}_{Dj},\sigma_{\sigma j}^2)\ .
 	\label{eq:prob}
@@ -236,19 +238,70 @@ Our likelihood function is the joint probability that each of the $\sigma_D=\{\s
 We want to test the hypothesis mentioned above that all errors and their variances $(\hat{\sigma}_D=\{\hat{\sigma}_{Dj}\},\ \sigma_\sigma=\{\sigma_{\sigma j}\})$ can be estimated from a single model depending on the extragalactic distances $D_G=\{D_{Gj}\}$ and a set of distance-independent parameters $\pmb{\theta}$. Thus the likelihood can be expressed as,
 \[P(\sigma_D|D_G,\pmb{\theta})=\prod_j^mP(\sigma_{Dj}|D_{Gj},\pmb{\theta})\ .\]
 Following Bayes' theorem we can compute the posterior probability up to a constant,
-\[P(\pmb{\theta}|D_G,\sigma_D)\propto P(\pmb{\theta})P(\sigma_D|D_G,\pmb{\theta})\ .\]
-Due to the simplicity of the models used here, we will only use conservative (flat) priors. From our analysis of Fig.~\ref{fig:ee}, all our models take $\sigma_\sigma=f\sigma_D$, where $f$ is one of the parameters in $\pmb{\theta}$. On the other hand, our models will differ by the proposed functional forms of $\hat{\sigma}_D(D_G,\pmb{\theta})$.\\
+\begin{equation}
+P(\pmb{\theta}|D_G,\sigma_D)\propto P(\pmb{\theta})P(\sigma_D|D_G,\pmb{\theta})\ .
+	\label{eq:ppd}
+\end{equation}
+Due to the simplicity of the models used here, we will only use conservative (flat) priors. From our analysis of Fig.~\ref{fig:ee}, all our models take $\sigma_\sigma=f\sigma_D$. This error variance scale factor $f$ is therefore one of the parameters in $\pmb{\theta}$. On the other hand, our models will differ by the proposed functional forms of $\hat{\sigma}_D(D_G,\pmb{\theta})$.\\
 
-We obtain a computationally credible sampling of the posterior probability by removing the burn-in steps of the random walk according to the autocorrelation time. We can then create synthetic datasets by drawing a parameter sample $\pmb{\theta}_k$ from the posterior and using it to draw from the likelihood to create a new dataset, i. e. drawing new $\sigma_{Dj,s}$ from the probability distribution for all galaxies in the original dataset using equation~\ref{eq:prob}. We then assess the validity of the model by comparing synthetic data with the observed (i. e. original) data. This comparison is done by using a discrepancy measure $\mathcal{D}(\sigma_D|\pmb{\theta}_k)$ between data and model-derived expected values for the same data $e=\{e_j(\pmb{\theta}_k)\}$, where $\theta_k$ is drawn from the posterior distribution and $\sigma_D$ can be the observed errors or the model-generated synthetic errors. The discrepancy can be calculated using a statistic like $\chi^2$ \citep{chi2ms,otherdisc}, but here we will work with the Freeman-Tukey discrepancy since it is weight independent \citep{brooks}, 
+We obtain a computationally credible sampling of the posterior probability by removing the burn-in steps of the random walk according to the autocorrelation time. We can then create synthetic datasets by drawing a parameter sample $\pmb{\theta}_k$ from the posterior and using it to draw from the likelihood to create a new dataset, i.e. drawing new $\sigma_{Dj}$ from the probability distribution for all galaxies in the original dataset using equation~\ref{eq:prob}. We then assess the validity of the model by comparing synthetic data with the observed (i.e. original) data. This comparison is done by using a discrepancy measure $\mathcal{D}(\sigma_D|\pmb{\theta}_k)$ between data and model-derived expected values for the same data $e=\{e_j(\pmb{\theta}_k)\}$, where $\theta_k$ is drawn from the posterior distribution and $\sigma_D$ can be the observed errors or the model-generated synthetic errors. The discrepancy can be calculated using a statistic like $\chi^2$ \citep{chi2ms,otherdisc}, but here we will work with the Freeman-Tukey discrepancy since it is weight independent \citep{brooks}, 
 \[\mathcal{D}(\sigma_D|\pmb{\theta}_k)=\sum_j^m(\sqrt{\sigma_{Dj}\vphantom{e_j(\pmb{\theta}_k)}}-\sqrt{e_j(\pmb{\theta}_k)})^2\]
-For each parameter draw $k$, it is possible to compare the symulated discrepancy with the observed discrepancy. If the model is representative of the data, then for many parameter draws, the symulated and observed discrepancies should be similar. We can then calculate a Bayesian ``$p$-value'' as the ratio of ``draws when the observed discrepancies are larger than the synthetic discrepancies'' to ``total draws''. If this Bayesian $p$-value is too close to 0 or to 1 we can reject the model, otherwise we cannot reject the model, as it is generating synthetic data that is similar to the original data. This is better visualized using a discrepancy plot, where for each draw $k$, a synthetic discrepancy is paired with its corresponding observed discrepancy. If the discrepancy points are roughly equally distributed about the $\mathcal{D}_\mathrm{obs}=\mathcal{D}_\mathrm{sym}$ line, then we cannot reject the model.\\
+For each parameter draw $k$, it is possible to compare the symulated discrepancy with the observed discrepancy. If the model is representative of the data, then for many parameter draws, the symulated and observed discrepancies should be similar. We can then calculate a Bayesian ``$p$-value'' as the ratio of ``draws when the observed discrepancies are larger than the synthetic discrepancies'' to ``total draws''. If this Bayesian $p$-value is too close to 0 or to 1 we can reject the model, otherwise we cannot reject the model, as it is generating synthetic data that is similar to the original data. This is better visualized using a discrepancy plot, where for each draw $k$, a synthetic discrepancy is paired with its corresponding observed discrepancy. If the discrepancy points are roughly equally distributed about the $\mathcal{D}_\mathrm{obs}=\mathcal{D}_\mathrm{sym}$ line, then we cannot reject the model. We expect that galaxies with the largest number of measurements are sampling more completely the ``true'' distribution of the distance. Therefore we expect that if we set an increasing limit on the minimum number of measurements per galaxy on the dataset that goes in the model, the Bayesian $p$-value will improve.\\
+
+\subsection{Bayesian Quadrature Model}
+\label{sec:bqm} % used for referring to this section from elsewhere
+
+Our first model is based on the hypothesis that there are are distinct systematic and random contributions to the distance measurement error, both of which are normally distributed. For this reason they are added in quadrature, 
+\begin{equation}
+\sigma_D^2=\sigma_s^2+\sigma_r^2\ .
+	\label{eq:bayq}
+\end{equation}
+If the systematic error is a scale factor error as Fig.~\ref{fig:hqp} suggests, $\sigma_r=sD$ where the scale factor $s$ and the random error $\sigma_r$ are independent of the distance. Here we ignore the possibility of having a zero setting error in the systematic component for numerical reasons explained in Section~\ref{sec:lqm}. % add the goddamn prior here!
+
+We now use \texttt{emcee} to sample the posterior over the parameter set $\pmb{\theta}=(f,s,\sigma_r)$ using 100 walkers and 10000 steps. According to the discrepancy plot in Fig.~\ref{fig:discq}, this model is able to replicate method H errors for the 29 galaxies with $N>25$ measurements. The corner plot showing the posterior sampling made by \texttt{emcee} is shown in Fig.~\ref{fig:cornerq}, which shows that the random error component is $\sigma_r=1.8_{-1.0}^{+0.8}$ Mpc, the scale factor is $s^2=0.07_{-0.01}^{+0.01}$, and the error variance scale factor is $f=0.50_{-0.07}^{+0.10}$. In particular, the error variance scale factor is in agreement with Fig.~\ref{fig:ee}. The working distance range and overall fitting of this model is shown in Fig.~\ref{fig:drawsq}, where the method H errors corresponding to galaxies with more than 25 TF distance measurements are plotted along the expected values $e=\{e_j(\pmb{\theta}_k)\}$ for parameter sets $\pmb{\theta}_k$ drawn from the posterior probability distribution. 
+\begin{figure*}
+	\includegraphics[scale=0.7]{cornerq}
+    \caption{Corner plot showing the \texttt{emcee} sampling of the posterior probability distribution (equation \ref{eq:ppd}) for the quadrature Bayesian model parameters $\pmb{\theta}=(s,\sigma_r,f)$ based on errors estimated using method H for galaxies with more than 25 TF distance measurements. The dashed lines indicate the 16th, 50th, and 84th percentile of the marginalized distribution of each parameter (shown at the top of each column), and the blue solid lines indicate the mean. This plot was made using the \texttt{corner} Python module .}
+    \label{fig:cornerq}
+\end{figure*}
+\begin{figure}
+	\includegraphics[scale=0.7]{discq}
+    \caption{Discrepancy plot for the Bayesian quadrature model (equation~\ref{eq:bayq}) based on errors estimated using method H. }
+    \label{fig:discq}
+\end{figure}
+\begin{figure}
+	\includegraphics[scale=0.7]{drawsq}
+    \caption{Projection of parameter set samples from the posterior probability distribution of the Bayesian quadrature model onto the $D_G$ vs. $\sigma_D$ scatter plot for errors estimated using method H for galaxies with more than 25 TF distance measurements.}
+    \label{fig:drawsq}
+\end{figure}
+The discrepancy plot for method M errors (Fig.~\ref{fig:discq2}) looks very similar to Fig.~\ref{fig:discq} which means that the Bayesian quadrature model also replicates method M errors for galaxies with more than 25 measurements. Fig.~\ref{fig:cornerq2}, shows that $\sigma_r=1.8_{-1.0}^{+0.8}$ Mpc, $s^2=0.07_{-0.01}^{+0.01}$, and $f=0.50_{-0.07}^{+0.10}$. %change the previous values and talk about how its similar to fig 4 and about how both show a linear trend but here it is more pronounced because sigma_r is tiny af because it is so obviously , so thats why we try our luck with a linear model... which later then shows that there is no random component but a zero offset systematic error yay. both models are equivalent but for numerical reasons we reject the complete coz it predicts  (at least one) negative values for the distance always? i need to write it in this weird way because i only know that the model kind of works after n>15 thanks to doing them separately. full model shows numerical instability due to the degeneracy between the zero offset error and the random error.
+\begin{figure*}
+	\includegraphics[scale=0.7]{cornerq2}
+    \caption{Corner plot showing the \texttt{emcee} sampling of the posterior probability distribution (equation \ref{eq:ppd}) for the quadrature Bayesian model parameters $\pmb{\theta}=(s,\sigma_r,f)$ based on errors estimated using method M for galaxies with more than 25 TF distance measurements. The dashed lines indicate the 16th, 50th, and 84th percentile of the marginalized distribution of each parameter (shown at the top of each column), and the blue solid lines indicate the mean. This plot was made using the \texttt{corner} Python module .}
+    \label{fig:cornerq}
+\end{figure*}
+\begin{figure}
+	\includegraphics[scale=0.7]{discq2}
+    \caption{Discrepancy plot for the Bayesian quadrature model (equation~\ref{eq:bayq}) based on errors estimated using method M. }
+    \label{fig:discq}
+\end{figure}
+\begin{figure}
+	\includegraphics[scale=0.7]{drawsq2}
+    \caption{Projection of parameter set samples from the posterior probability distribution of the Bayesian quadrature model onto the $D_G$ vs. $\sigma_D$ scatter plot for errors estimated using method M for galaxies with more than 25 TF distance measurements.}
+    \label{fig:drawsq}
+\end{figure}
 
 
-Our first model is based on the (somewhat naive) hypothesis that there are are distinct systematic and random contributions to the distance measurement error, both of which are normally distributed. For this reason they are added in quadrature, 
-\[\sigma_D^2=\sigma_s^2+\sigma_r^2\ .\]
-If the systematic error is a scale factor error as Fig.~\ref{fig:hqp} suggests, $\sigma_r=sD$ where the scale factor $s$ and the random error $\sigma_r$ are independent of the distance. We then use \texttt{emcee} to sample the posterior over the parameter set $\pmb{\theta}=(f,s,\sigma_r)$. 
 
-Several models in order to reach a predictive model. Central limit theorem?
+
+Evidently, the sample of galaxies for which this model works is very small, which means that
+
+
+
+%Central limit theorem?
+
+\subsection{Bayesian Linear Model}
+\label{sec:blm} % used for referring to this section from elsewhere
 
 \citet{gelman2003} and \citet{ppcinf} and for using posterior predictive checks for inference and prediction
 

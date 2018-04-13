@@ -17,30 +17,217 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
+\bibitem[\protect\citeauthoryear{Barris \& Tonry}{Barris \&
+  Tonry}{2004}]{ridsn}
+Barris B.,  Tonry J.,  2004, \mn@doi [ASTROPHYSICAL JOURNAL] {10.1086/424871},
+  613, L21
+
+\bibitem[\protect\citeauthoryear{Brooks, Catchpole  \& Morgan}{Brooks
+  et~al.}{2000}]{brooks}
+Brooks S.~P.,  Catchpole E.~A.,   Morgan B. J.~T.,  2000, Statistical Science,
+  15, 357
+
+\bibitem[\protect\citeauthoryear{Brugger}{Brugger}{1969}]{wstdev}
+Brugger R.~M.,  1969, \mn@doi [The American Statistician]
+  {10.1080/00031305.1969.10481865}, 23, 32
+
+\bibitem[\protect\citeauthoryear{Chambert, Rotella  \& Higgs}{Chambert
+  et~al.}{}]{ppcinf}
+Chambert T.,  Rotella J.~J.,   Higgs M.~D., , \mn@doi [Ecology and Evolution]
+  {10.1002/ece3.993}, 4, 1389
+
+\bibitem[\protect\citeauthoryear{{Chaparro Molano}, {Restrepo Gait{\'a}n},
+  {Cuervo Marulanda}  \& {Torres Arzayus}}{{Chaparro Molano}
+  et~al.}{2018}]{chaparro18}
+{Chaparro Molano} G.,  {Restrepo Gait{\'a}n} O.~A.,  {Cuervo Marulanda} J.~C.,
+   {Torres Arzayus} S.~A.,  2018, in Revista Mexicana de Astronomia y
+  Astrofisica Conference Series. pp 63--63
+
+\bibitem[\protect\citeauthoryear{Courtois, Hoffman, Tully  \&
+  Gottloeber}{Courtois et~al.}{2012}]{locunivcf}
+Courtois H.~M.,  Hoffman Y.,  Tully R.~B.,   Gottloeber S.,  2012, \mn@doi
+  [ASTROPHYSICAL JOURNAL] {10.1088/0004-637X/744/1/43}, 744
+
+\bibitem[\protect\citeauthoryear{De~la Horra}{De~la Horra}{2008}]{chi2ms}
+De~la Horra J.,  2008, \mn@doi [COMMUNICATIONS IN STATISTICS-THEORY AND
+  METHODS] {10.1080/03610920701678976}, 37, 1412
+
 \bibitem[\protect\citeauthoryear{Dhawan, Jha  \& Leibundgut}{Dhawan
   et~al.}{2018}]{hubsn2018}
-Dhawan S.,  Jha S.~W.,   Leibundgut B.,  {2018}, \mn@doi [{ASTRONOMY \&
-  ASTROPHYSICS}] {{10.1051/0004-6361/201731501}}, {609}
+Dhawan S.,  Jha S.~W.,   Leibundgut B.,  2018, \mn@doi [ASTRONOMY \&
+  ASTROPHYSICS] {10.1051/0004-6361/201731501}, 609
+
+\bibitem[\protect\citeauthoryear{Foreman-Mackey, Hogg, Lang  \&
+  Goodman}{Foreman-Mackey et~al.}{2013}]{emcee}
+Foreman-Mackey D.,  Hogg D.~W.,  Lang D.,   Goodman J.,  2013, \mn@doi
+  [PUBLICATIONS OF THE ASTRONOMICAL SOCIETY OF THE PACIFIC] {10.1086/670067},
+  125, 306
+
+\bibitem[\protect\citeauthoryear{Freedman \& Madore}{Freedman \&
+  Madore}{2010}]{hub2010}
+Freedman W.~L.,  Madore B.~F.,  2010, in Blandford R.,  Faber S.,  van Dishoeck
+  E.,   Kormendy J.,  eds, Annual Review of Astronomy and Astrophysics,
+  Vol.~48, ANNUAL REVIEW OF ASTRONOMY AND ASTROPHYSICS, VOL 48.
+pp 673--710, \mn@doi{10.1146/annurev-astro-082708-101829}
+
+\bibitem[\protect\citeauthoryear{Freedman et~al.,}{Freedman
+  et~al.}{2001}]{huborig}
+Freedman W.~L.,  et~al., 2001, The Astrophysical Journal, 553, 47
+
+\bibitem[\protect\citeauthoryear{Gelman}{Gelman}{2003}]{gelman2003}
+Gelman A.,  2003, Internat. Statist. Rev., 71, 369
+
+\bibitem[\protect\citeauthoryear{Gelman, li Meng  \& Stern}{Gelman
+  et~al.}{1996}]{gelmanppd}
+Gelman A.,  li Meng X.,   Stern H.,  1996, Statistica Sinica, 6, 733
+
+\bibitem[\protect\citeauthoryear{Humphreys, Reid, Moran, Greenhill  \&
+  Argon}{Humphreys et~al.}{2013}]{hubngc}
+Humphreys E. M.~L.,  Reid M.~J.,  Moran J.~M.,  Greenhill L.~J.,   Argon A.~L.,
+   2013, \mn@doi [ASTROPHYSICAL JOURNAL] {10.1088/0004-637X/775/1/13}, 775
+
+\bibitem[\protect\citeauthoryear{Jarrett, Chester, Cutri, Schneider, Skrutskie
+  \& Huchra}{Jarrett et~al.}{2000}]{2mass}
+Jarrett T.~H.,  Chester T.,  Cutri R.,  Schneider S.,  Skrutskie M.,   Huchra
+  J.~P.,  2000, The Astronomical Journal, 119, 2498
+
+\bibitem[\protect\citeauthoryear{Javanmardi \& Kroupa}{Javanmardi \&
+  Kroupa}{2017}]{morphanis}
+Javanmardi B.,  Kroupa P.,  2017, \mn@doi [ASTRONOMY \& ASTROPHYSICS]
+  {10.1051/0004-6361/201629408}, 597
+
+\bibitem[\protect\citeauthoryear{{Jesus}, {Greg{\'o}rio}, {Andrade-Oliveira},
+  {Valentim}  \& {Matos}}{{Jesus} et~al.}{2018}]{bayesh}
+{Jesus} J.~F.,  {Greg{\'o}rio} T.~M.,  {Andrade-Oliveira} F.,  {Valentim} R.,
+  {Matos} C.~A.~O.,  2018, \mn@doi [\mnras] {10.1093/mnras/sty813}, \href
+  {http://adsabs.harvard.edu/abs/2018MNRAS.tmp..789J} {}
+
+\bibitem[\protect\citeauthoryear{Kelly}{Kelly}{2007}]{gmastro}
+Kelly B.~C.,  2007, \mn@doi [ASTROPHYSICAL JOURNAL] {10.1086/519947}, 665, 1489
 
 \bibitem[\protect\citeauthoryear{Kourkchi \& Tully}{Kourkchi \&
   Tully}{2017}]{gg3500}
-Kourkchi E.,  Tully R.~B.,  {2017}, \mn@doi [{ASTROPHYSICAL JOURNAL}]
-  {{10.3847/1538-4357/aa76db}}, {843}
+Kourkchi E.,  Tully R.~B.,  2017, \mn@doi [ASTROPHYSICAL JOURNAL]
+  {10.3847/1538-4357/aa76db}, 843
+
+\bibitem[\protect\citeauthoryear{Ma, Taylor  \& Scott}{Ma
+  et~al.}{2013}]{nongauss}
+Ma Y.-Z.,  Taylor J.~E.,   Scott D.,  2013, \mn@doi [MONTHLY NOTICES OF THE
+  ROYAL ASTRONOMICAL SOCIETY] {10.1093/mnras/stt1726}, 436, 2029
+
+\bibitem[\protect\citeauthoryear{Makarov, Prugniel, Terekhova, Courtois  \&
+  Vauglin}{Makarov et~al.}{2014}]{hyperleda}
+Makarov D.,  Prugniel P.,  Terekhova N.,  Courtois H.,   Vauglin I.,  2014,
+  \mn@doi [ASTRONOMY \& ASTROPHYSICS] {10.1051/0004-6361/201423496}, 570
+
+\bibitem[\protect\citeauthoryear{Mazzarella \& Team}{Mazzarella \&
+  Team}{2007}]{ned07}
+Mazzarella J.~M.,  Team N.,  2007, in Shaw R.,  Hill F.,   Bell D.,  eds,
+  ASTRONOMICAL SOCIETY OF THE PACIFIC CONFERENCE SERIES Vol. 376, ASTRONOMICAL
+  DATA ANALYSIS SOFTWARE AND SYSTEMS XVI. pp 153--162
+
+\bibitem[\protect\citeauthoryear{McClure \& Dyer}{McClure \&
+  Dyer}{2007}]{anishub}
+McClure M.~L.,  Dyer C.~C.,  2007, \mn@doi [NEW ASTRONOMY]
+  {10.1016/j.newast.2007.03.005}, 12, 533
+
+\bibitem[\protect\citeauthoryear{Mould \& Sakai}{Mould \& Sakai}{2008}]{noceph}
+Mould J.,  Sakai S.,  2008, \mn@doi [ASTROPHYSICAL JOURNAL LETTERS]
+  {10.1086/592964}, 686, L75
+
+\bibitem[\protect\citeauthoryear{Nasonova \& Karachentsev}{Nasonova \&
+  Karachentsev}{2011}]{void}
+Nasonova O.~G.,  Karachentsev I.~D.,  2011, \mn@doi [ASTROPHYSICS]
+  {10.1007/s10511-011-9153-1}, 54, 1
+
+\bibitem[\protect\citeauthoryear{Obreschkow \& Meyer}{Obreschkow \&
+  Meyer}{2013}]{precisetf}
+Obreschkow D.,  Meyer M.,  2013, \mn@doi [ASTROPHYSICAL JOURNAL]
+  {10.1088/0004-637X/777/2/140}, 777
+
+\bibitem[\protect\citeauthoryear{Riess et~al.,}{Riess et~al.}{2016}]{riess}
+Riess A.~G.,  et~al., 2016, The Astrophysical Journal, 826, 56
+
+\bibitem[\protect\citeauthoryear{Roman \& Trujillo}{Roman \&
+  Trujillo}{2017}]{gallargescale}
+Roman J.,  Trujillo I.,  2017, \mn@doi [MONTHLY NOTICES OF THE ROYAL
+  ASTRONOMICAL SOCIETY] {10.1093/mnras/stx438}, 468, 703
+
+\bibitem[\protect\citeauthoryear{Rubin et~al.,}{Rubin et~al.}{2015}]{unity}
+Rubin D.,  et~al., 2015, \mn@doi [ASTROPHYSICAL JOURNAL]
+  {10.1088/0004-637X/813/2/137}, 813
+
+\bibitem[\protect\citeauthoryear{Said, Kraan-Korteweg, Staveley-Smith,
+  Williams, Jarrett  \& Springob}{Said et~al.}{2016}]{said}
+Said K.,  Kraan-Korteweg R.~C.,  Staveley-Smith L.,  Williams W.~L.,  Jarrett
+  T.~H.,   Springob C.~M.,  2016, \mn@doi [MONTHLY NOTICES OF THE ROYAL
+  ASTRONOMICAL SOCIETY] {10.1093/mnras/stw105}, 457, 2366
+
+\bibitem[\protect\citeauthoryear{Sorce et~al.,}{Sorce et~al.}{2013}]{sorce}
+Sorce J.~G.,  et~al., 2013, The Astrophysical Journal, 765, 94
+
+\bibitem[\protect\citeauthoryear{Sorce, Courtois, Gottlober, Hoffman  \&
+  Tully}{Sorce et~al.}{2014}]{localunipv}
+Sorce J.~G.,  Courtois H.~M.,  Gottlober S.,  Hoffman Y.,   Tully R.~B.,  2014,
+  \mn@doi [MONTHLY NOTICES OF THE ROYAL ASTRONOMICAL SOCIETY]
+  {10.1093/mnras/stt2153}, 437, 3586
 
 \bibitem[\protect\citeauthoryear{Speagle \& Eisenstein}{Speagle \&
   Eisenstein}{2017a}]{photred1}
-Speagle J.~S.,  Eisenstein D.~J.,  {2017}a, \mn@doi [{MONTHLY NOTICES OF THE
-  ROYAL ASTRONOMICAL SOCIETY}] {{10.1093/mnras/stw1485}}, {469}, 1186
+Speagle J.~S.,  Eisenstein D.~J.,  2017a, \mn@doi [MONTHLY NOTICES OF THE ROYAL
+  ASTRONOMICAL SOCIETY] {10.1093/mnras/stw1485}, 469, 1186
 
 \bibitem[\protect\citeauthoryear{Speagle \& Eisenstein}{Speagle \&
   Eisenstein}{2017b}]{photred2}
-Speagle J.~S.,  Eisenstein D.~J.,  {2017}b, \mn@doi [{MONTHLY NOTICES OF THE
-  ROYAL ASTRONOMICAL SOCIETY}] {{10.1093/mnras/stx510}}, {469}, 1205
+Speagle J.~S.,  Eisenstein D.~J.,  2017b, \mn@doi [MONTHLY NOTICES OF THE ROYAL
+  ASTRONOMICAL SOCIETY] {10.1093/mnras/stx510}, 469, 1205
+
+\bibitem[\protect\citeauthoryear{Springob, Masters, Haynes, Giovanelli  \&
+  Marinoni}{Springob et~al.}{2007}]{tf07dist}
+Springob C.~M.,  Masters K.~L.,  Haynes M.~P.,  Giovanelli R.,   Marinoni C.,
+  2007, The Astrophysical Journal Supplement Series, 172, 599
+
+\bibitem[\protect\citeauthoryear{Springob et~al.,}{Springob et~al.}{2014}]{6df}
+Springob C.~M.,  et~al., 2014, \mn@doi [MONTHLY NOTICES OF THE ROYAL
+  ASTRONOMICAL SOCIETY] {10.1093/mnras/stu1743}, 445, 2677
+
+\bibitem[\protect\citeauthoryear{Steer et~al.,}{Steer et~al.}{2017}]{ned}
+Steer I.,  et~al., 2017, \mn@doi [ASTRONOMICAL JOURNAL]
+  {10.3847/1538-3881/153/1/37}, 153
+
+\bibitem[\protect\citeauthoryear{Torres \& Cuervo}{Torres \&
+  Cuervo}{2018}]{tecciencia}
+Torres S.,  Cuervo J.~C.,  2018, \mn@doi [Tecciencia]
+  {10.18180/tecciencia.2018.24.2}, 24, 53
+
+\bibitem[\protect\citeauthoryear{{Tully} \& {Fisher}}{{Tully} \&
+  {Fisher}}{1977}]{tforig}
+{Tully} R.~B.,  {Fisher} J.~R.,  1977, \aap, \href
+  {http://adsabs.harvard.edu/abs/1977A%26A....54..661T} {54, 661}
+
+\bibitem[\protect\citeauthoryear{Tully \& Pierce}{Tully \&
+  Pierce}{2000}]{hubunc}
+Tully R.~B.,  Pierce M.~J.,  2000, The Astrophysical Journal, 533, 744
+
+\bibitem[\protect\citeauthoryear{Tully, Courtois  \& Sorce}{Tully
+  et~al.}{2016}]{cosmicflows}
+Tully R.~B.,  Courtois H.~M.,   Sorce J.~G.,  2016, \mn@doi [ASTRONOMICAL
+  JOURNAL] {10.3847/0004-6256/152/2/50}, 152
+
+\bibitem[\protect\citeauthoryear{White, Daw  \& Dhillon}{White
+  et~al.}{2011}]{gwgallist}
+White D.~J.,  Daw E.~J.,   Dhillon V.~S.,  2011, \mn@doi [CLASSICAL AND QUANTUM
+  GRAVITY] {10.1088/0264-9381/28/8/085016}, 28
 
 \bibitem[\protect\citeauthoryear{Zhang \& Shields}{Zhang \&
   Shields}{2018}]{propprob2018}
-Zhang J.,  Shields M.~D.,  {2018}, \mn@doi [{MECHANICAL SYSTEMS AND SIGNAL
-  PROCESSING}] {{10.1016/j.ymssp.2017.04.042}}, {98}, 465
+Zhang J.,  Shields M.~D.,  2018, \mn@doi [MECHANICAL SYSTEMS AND SIGNAL
+  PROCESSING] {10.1016/j.ymssp.2017.04.042}, 98, 465
+
+\bibitem[\protect\citeauthoryear{de~la Horra \& Teresa Rodriguez-Bernal}{de~la
+  Horra \& Teresa Rodriguez-Bernal}{2012}]{otherdisc}
+de~la Horra J.,  Teresa Rodriguez-Bernal M.,  2012, SORT-STATISTICS AND
+  OPERATIONS RESEARCH TRANSACTIONS, 36, 69
 
 \makeatother
 \end{thebibliography}
