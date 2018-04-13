@@ -1,3 +1,17 @@
 .ipynb_checkpoints*
 NED26.05.1-D-12.1.0-20160501.csv
 
+
+*.aux
+
+*.bbl
+
+*.aux
+
+*.blg
+
+*.log
+
+*.out
+
+*.gz
