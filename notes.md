@@ -26,3 +26,24 @@ TRGB, CMD, RR Lyrae, Eclipsing Binary, Red Clump, PNLF, SZ effect, Brightest Sta
 Check for both those things, for TF shouldn't be a problem, but still...
 
 "Tully -‐ Fisher: introduced by Tully & Fisher (1977), based on the absolute blue magnitudes of spiral galaxies, which depend on their apparent blue magnitude, m B , and their maximum r otational velocity, sigma: M B = - 7.0 log sigma -‐ 1.8 ( e.g. , Karachentsev et al. 2003). So, the galaxy NGC 0247 has an absolute blue magnitude of M B = -‐ 18.2, based on its rotational velocity, sigma = 222 km s -‐ 1 . With an apparent blue magnitude of m B = 9.86, NGC 0247 has a distance modulus of (m -‐ M) B = 28.1, f or a distance of 4.1 Mpc"
+
+- Efforts to reduce the uncertainty in the estimate the Hubble constant are single-method such as SNIa \citet{hubsn2018}.
+- Bayesian analysis of systematic uncertainties for cosmology when using SNIa-derived galactic parameters (heterogeneous errors) \citet{unity}. 
+- Hubble constant MCMC estimation based on Cepheids distance determination for NGC 4258 \citet{hubngc}. 
+- \citet{hub2010} is the important hubble paper, although the original hubble estimation from redshift independent distances is \citet{huborig}. 
+- \citet{ridsn} estimates distances using SNIa but no redshifts. 
+- \citet{riess} is the 2.4 percent determination of hubble constant. 
+- Changes in Hubble constant estimation using TF relation without Cepheids \citet{noceph}.
+- GW searches \citet{gwgallist}, we should improve redshift independent distance determination .
+- Determining the spatial distribution of galaxies in order to study large-scale structure \citet{gallargescale} or local universe peculiar velocities \citet{localunipv}. Kinematics of nearby galaxies in void \citet{void}
+- \citet{6df} attempt to predict redshift-derived distance errors within a Bayesian framework yields 26\%.
+- Studies of anisotropy be it of morphological types \citet{morphanis} or density-velocity \citet{nongauss}
+- Determining whether a galaxy belongs to a group by analyzing their common properties \citet{gg3500} with conclusions regarding the halo mass function
+- Anisotropy hubble from HST data \citet{anishub} and from NED-D \citet{tecciencia}. 
+- 10\% estimated uncertainty for photometrically derived distance scale ladder \citet{hubunc}.
+- \citet{locunivcf} local universe structure reconstruction Cosmicflows-1
+- \citet{precisetf} corrected the TF method for uncertainties in galaxy inclinations. \citet{tf07dist}
+-   \citet{said} has used emcee for Tully-Fisher in the southern Zone of Avoidance.
+- \citet{hyperleda} does not give a prescription for error estimation.
+
+-  UNUSED - which also need to take into account instrument detection limits \citet{catmatch} and source identification \citet{baymatch}. Importance of distance and catalogs \citet{catetg,catspi} in: Exploration of prior discrepancy modeling in model estimation \citet{priordisc}
