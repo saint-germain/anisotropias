@@ -321,12 +321,17 @@ We sample the posterior for the linear model applied to M errors using \texttt{e
     \caption{Projection of parameter set samples from the posterior probability distribution of the Bayesian linear model onto the $D_G$ vs. $\sigma_D$ scatter plot for errors estimated using method M for galaxies with more than 13 TF distance measurements.}
     \label{fig:drawsl2}
 \end{figure*}
+\begin{figure*}
+	\includegraphics[scale=0.7]{drawsee}
+    \caption{Projection of parameter set samples from the posterior probability distribution of the Bayesian linear model onto the $\sigma_D$ vs. $\sigma_\sigma$ scatter plot for errors estimated using methods H and M for galaxies with more than 15 and 13 TF distance measurements, respectively.}
+    \label{fig:drawsee}
+\end{figure*}
 \subsection{Predictions for missing errors}
 \label{sec:pred} 
-Our linear Bayesian model is able to predict the intrinsic variance of H and M errors by modeling them as systematic errors, with zero setting and scale factor error components. The lower limit of distance measurements for which the model works for H and M errors, is 15 and 13, respectively. Figs.~\ref{fig:drawsl} and \ref{fig:drawsl2} respectively show the linear model draws for H and M errors, for which the working range is approximately $D_G\in(3,140)$ Mpc. Given that galaxies with the lower limit of observations quoted above are not instrinsically different to other galaxies in this range, we use the posterior predictive distribution of the linear Bayesian model for predicting errors for the 818 galaxies in NED-D for which all TF measurements lack a reported error. Figs.~\ref{fig:predl1} and \ref{fig:predl2} show synthetic errors generated from the posterior predictive distribution for the $\sigma_D$ linear model, along with the expected values of $\sigma_D$ using the median of the posterior probability distribution in equation~\ref{eq:ppd}, and the $D_G$ vs. $\sigma_D$ points for galaxies with more than 5 TF distance measurements (for contrast) for methods H and M, respectively. The median expected values are only drawn for points within the predictive range of each model, and synthetic predicted errors for galaxies outside of this range are plotted in black. The distance was calculated using the median of the reported distances whenever there was more than one TF distance measurement.
+Our linear Bayesian model is able to predict the intrinsic variance of H and M errors by modeling them as systematic errors, with zero setting and scale factor error components. The lower limit of distance measurements for which the model works for H and M errors, is 15 and 13, respectively. Figs.~\ref{fig:drawsl} and \ref{fig:drawsl2} respectively show the linear model draws for H and M errors, for which the working range is approximately $D_G\in(3,140)$ Mpc. We also show in Fig.~\ref{fig:drawsee} that the model draws for $f$ the scale parameter for the variance of $\sigma_D$ fit the bootstrap variance of H and M errors well. Given that galaxies with the lower limit of observations quoted above are not instrinsically different to other galaxies in this range, we use the posterior predictive distribution of the linear Bayesian model for predicting errors for the 818 galaxies in NED-D for which all TF measurements lack a reported error. Figs.~\ref{fig:predl1} and \ref{fig:predl2} show synthetic errors generated from the posterior predictive distribution for the $\sigma_D$ linear model, along with the expected values of $\sigma_D$ using the median of the posterior probability distribution in equation~\ref{eq:ppd}, and the $D_G$ vs. $\sigma_D$ points for galaxies with more than 5 TF distance measurements (for contrast) for methods H and M, respectively. The median expected values are only drawn for points within the predictive range of each model, and synthetic predicted errors for galaxies outside of this range are plotted in black. The distance was calculated using the median of the reported distances whenever there was more than one TF distance measurement.% FP low number of meas per galaxy, can make a predictive model but it's not trustworthy. 
 \begin{figure*}
 	\includegraphics[scale=0.7]{predl1.png}
-    \caption{Synthetic H-method $\sigma_D$ and their median expected values for the 818 galaxies in NED-D galaxies for which no TF distance measurements report an error, generated using the corresponding Bayesian linear model. Predicted errors for galaxies outside of the working distance range of the model are plotted in black. H errors for galaxies with more than 5 TF measurements are also plotted for comparison.}
+    \caption{Synthetic H-method $\sigma_D$ and their median expected values for the 818 galaxies in NED-D for which no TF distance measurements report an error, generated using the corresponding Bayesian linear model. Predicted errors for galaxies outside of the working distance range of the model are plotted in black. H errors for galaxies with more than 5 TF measurements are also plotted for comparison.}
     \label{fig:predl1}
 \end{figure*}
 \begin{figure*}
@@ -368,16 +373,34 @@ The authors would like to thank O. L. Ram\'irez-Su\'arez and J. E. Forero-Romero
 
 \appendix
 
-\section{Some extra material}
-
-Bootstrap H and M treatment for HyperLEDA, NED-D and Cosmicflows-3, along with plots (3 plots total). 
+\section{Estimation of errors for HyperLEDA}
+We estimated errors for the HyperLEDA redshift-independent extragalactic distance database using the methods described in Section~\ref{sec:comp} across all distance determination methods. As expected from our analysis of TF errors in NED-D, errors calculated with methods P, Q, and M overpredict the error with respect to the H method for galaxies with a low number of distance measurements ($N=2$), as shown in Fig.~\ref{fig:HLlow}. Fig.~\ref{fig:HLhigh} shos that for galaxies with a higher number of distance measurements, the P method significantly underpredicts the error with respect to the other methods. Even though the H and Q methods show a similar trend, the variance of Q errors around this trend is higher than for H methods. Errors obtained with method M are lower, due to the method's intrinsic robustness. Table ... N=1. 
+\begin{figure*}
+	\includegraphics[scale=0.7]{HLlow.png}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with 2 redshift-independent distance measurements in HyperLEDA according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
+    \label{fig:HLlow}
+\end{figure*}
+\begin{figure*}
+	\includegraphics[scale=0.7]{HLhigh.png}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with more than 2 redshift-independent distance measurements in HyperLEDA according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
+    \label{fig:HLhigh}
+\end{figure*}
+HyperLEDA has 2473 distance measurements without reported errors for 1073 galaxies, of which 225 galaxies do not have any errors reported. Of these, 152 have FP and 34 have TF measurements. As mentioned in Section~\ref{sec:pred}, due to the low number of galaxies with more than 10 FP distance measurements we will not attempt to make a prediction of those missing errors. However, we can create synthetic errors for the 71 galaxies for which their only TF distance measurements have no-reported-error (incuding the 34 mentioned above) using our Bayesian predictive models for H and M TF errors. Predicted H errors are somewhat higher than those estimated for HyperLEDA, although acceptably within the range (Fig.~\ref{fig:predhl1}). On the other hand, predicted M errors are very close to the HyperLEDA M error estimates (Fig.~\ref{fig:predhl2}). 
+\begin{figure*}
+	\includegraphics[scale=0.7]{predhl1.png}
+    \caption{Synthetic H-method $\sigma_D$ and their median expected values for the 71 galaxies in HyperLEDA for which no TF distance measurements report an error, generated using the corresponding Bayesian linear model. Predicted errors for galaxies outside of the working distance range of the model are plotted in black. H errors for galaxies with more than 2 distance measurements are also plotted for comparison.}
+    \label{fig:predhl1}
+\end{figure*}
+\begin{figure*}
+	\includegraphics[scale=0.7]{predhl2.png}
+    \caption{Synthetic M-method $\sigma_D$ and their median expected values for the 71 galaxies in HyperLEDA for which no TF distance measurements report an error, generated using the corresponding Bayesian linear model. Predicted errors for galaxies outside of the working distance range of the model are plotted in black. M errors for galaxies with more than 2 distance measurements are also plotted for comparison.}
+    \label{fig:predhl2}
+\end{figure*}
+Bootstrap H and M treatment for HyperLEDA, NED-D and Cosmicflows-3, along with plots (3 plots total) and tables. 
 %Don't forget  abstract. Change repo location (better name).
 %NED-D per-method error - neglect missing errors for galaxies that have other TF measurements with reported error.
-%generative per-method HQMP plots for NED-D? put them all in one page
+%generative per-method HQMP plots for NED-D? put them all in one page - overkill?
 %cite number of methods per catalog?
-% important to add to appendix supplementary figures to complement the multi-method analysis for hyperleda, all ned-d and cosmicflows. 
-%say that we made new data tables?
-% create plots for those tables. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\citep[e.g.][]{photred1}.
