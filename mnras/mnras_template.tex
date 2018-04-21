@@ -111,7 +111,7 @@ Understanding the uncertainties in redshift-independent extragalactic distance m
 
 As of 2018, three multi-measurement catalogs including a substantial amount of redshift-independent extragalactic distance measurements have been released: HyperLEDA \citep{hyperleda}, NED-D \citep{ned07,ned}, and Cosmicflows-3 \citep{cosmicflows}. HyperLEDA includes a homogenized catalog for extragalactic distances in the nearby universe, with 12866 distance measurements for 518 galaxies to date. NED-D is the NASA/IPAC Extragalactic Distance catalog of Redshift-Independent Distances, which compiles 319690 distance measurements for 182170 galaxies, for which  $\sim1800$ galaxies ($\sim1$\%) have more than 13 distance measurements, and $~180$ galaxies ($\sim0.1$\%) have distance measurements using more than 6 different methods. Cosmicflows-3 is the most up-to-date catalog, which reports distance measurements for 10616 galaxies for up to four distance determination methods, and calibrated with supernova luminosities. However, unlike HyperLEDA or NED-D, Cosmicflows-3 only reports the latest distance measurement for each method. In HyperLEDA, NED-D and Cosmicflows-3 errors are reported as one standard deviation from the reported distance modulus. Treatment of errors for combining distance moduli across methods or across measurements is suggested by \citet{ned07} and \citet{cosmicflows} to be based on weighted estimates such as the uncertainty of the weighted mean, albeit with caution due to the hererogeneous origin of the compiled data. In the case of NED-D, this is complicated by the fact that many errors are not reported or are reported as zero. In fact, the TF relation method has the largest number of galaxies with non-reported distance modulus errors (818 to date). Even though extragalactic distances measured using the TF relation were originally reported to have a relative error in distance modulus of $10-20$\% \citep{tforig}, we consider that this conservative estimate can be improved upon by using a predictive model based on the distance error of galaxies that use the same distance determination method. This requires a robust estimation of the variance of extragalactic distances based on the available data.\\
 
-For many galaxies in all three catalogs, the random error for each distance modulus measurement $\epsilon_i$ (for $i=1,...,N$, for $N$ distance measurements per galaxy) is not representative of the scatter across measurements, even when considering the same method for determining distances. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in metric distance space. We improve upon previous methods by robustly estimating the underlying variance across measurements and distance determination methods for the three catalogs by bootstrap sampling the posterior distribution of each extragalactic distance \citep{chaparro18}. We compare our results to other more commonly used frequentist methods, such as the weighted estimates mentioned above. We build predictive Bayesian models for the estimation of errors and evaluate them by performing posterior predictive checks using a discrepancy measure and a Bayesian ``p-value'' \citep{gelmanppd}. Furthermore, we make predictions for the 818 galaxies in the NED-D catalog whose distances were measured using the TF relation but have non-reported errors. The usefulness of posterior predictive checks on Bayesian models for inference has been discussed in \citet{gelman2003} and \citet{ppcinf}.\\
+For many galaxies in all three catalogs, the random error for each distance modulus measurement $\epsilon_i$ (for $i=1,...,N$, for $N$ distance measurements per galaxy) is not representative of the scatter across measurements, even when considering the same method for determining distances. In addition, distance modulus distributions for each measurement (which are assumed to be Gaussian) are transformed to log-normal distributions in metric distance space. This can introduce a significant bias in peculiar velocity studies for large-scale structure studies \citep{lognormal}. We improve upon previous methods by robustly estimating the underlying variance across measurements and distance determination methods for the three catalogs by bootstrap sampling the posterior distribution of each extragalactic distance \citep{chaparro18}. We compare our results to other more commonly used frequentist methods, such as the weighted estimates mentioned above. We build predictive Bayesian models for the estimation of errors and evaluate them by performing posterior predictive checks using a discrepancy measure and a Bayesian ``p-value'' \citep{gelmanppd}. Furthermore, we make predictions for the 818 galaxies in the NED-D catalog whose distances were measured using the TF relation but have non-reported errors. The usefulness of posterior predictive checks on Bayesian models for inference has been discussed in \citet{gelman2003} and \citet{ppcinf}.\\
 
 We organized this paper as follows. In Section~\ref{sec:post} we talk about the posterior distribution of distance for individual galaxies and set up methods for measuring its variance. In Section~\ref{sec:comp} we make a comparison between the proposed variance estimation methods, and in Section~\ref{sec:predbay} we propose and evaluate predictive Bayesian models for two robust methods of error estimation, and we summarize our work in the Conclusions section.
 
@@ -147,13 +147,13 @@ Here $\sigma^*_D$ is calculated as  \citep{wstdev},
 \end{equation}
 If the non-robust P and Q methods are representative of the variance of the posterior, they should yield similar results as the H method. Next section shows that this is not the case.
 
-\subsection{Comparison of variance estimation methods}
+\section{Comparison of variance estimation methods}
 \label{sec:comp} 
 
 
 Even though our analysis for error estimation can be used to combine distance measurements using different methods for single galaxies, we think that due to method-intrinsic systematics it is more appropriate to separate the analysis by method. A full discussion of our error estimation method applied to multi-method measurements in the HyperLEDA, NED-D and Cosmicflows-3 is given in the appendix. A live, Binder-compatible repository for this work is located at \texttt{https://github.com/saint-germain/anisotropias}. Without loss of generality, we focus on galaxies whose distances have been measured using the Tully-Fisher method in the NED-D catalog because it is the method with the largest number of galaxies without reported measurement errors (818) in the database. From here on, when we mention distance measurements in the NED-D catalog, we will be excluding from our analysis measurements that require the target redshift to calculate the distance, as indicated in the \texttt{redshift (z)} field. \\
 
-For galaxies with a number of TF distance measurements between 2 and 5, errors estimated with the the quadrature (Q), and median absolute deviation (M) methods show a linear trend with similar slopes (Fig.~\ref{fig:hpmlow}) that overpredict the variance with respect to the half 84th-16th percentile distance (H) method, whereas the propagation (P) method tends to underpredict the errors. Furthermore, errors estimated using the Q method show a larger dispersion around the linear trend than the H and M methods. The central limit theorem indicates that as the number of measurements increases, the behavior of the distance errors should settle toward being normally distributed around the correlation trend. Fig.~\ref{fig:comp} shows that for a small but representative sample of galaxies with more than 7 distance measurements, the center and variance of the posterior distribution of each extragalactic distance is best explained using the H method, whereas the less robust P and Q methods under-predict the variance. The M method also under-predicts the variance because it is a robust method, and thus not as sensitive to outliers as methods P and Q, as seen in the case of NGC 1558 in Fig.~\ref{fig:comp}. For the more symmetrical posterior distribution of UGC 12792, the M and Q methods predict the same center and variance. Fig.~\ref{fig:hqp} shows that the Q and P methods underpredict distance errors for galaxies with more than 5 TF distance measurements. Fig.~\ref{fig:qm} shows that method Q underpredicts distance errors with respect to the M method, which again shows a tighter linear correlation due to its robustness. The general correlation between distance and distance error (Figs.~\ref{fig:hqmlow} and \ref{fig:hqp}) means that there is a strong systematic component in the variance of $P(D_G)$, which is expected from the distance modulus to metric distance conversion. To improve visualization, only errors for galaxies with more than 5 TF distance measurements are shown in Figs.~\ref{fig:qm}, \ref{fig:ee}, \ref{fig:predl1}, and \ref{fig:predl2}.\\
+For galaxies with a number of TF distance measurements between 2 and 5, errors estimated with the the quadrature (Q), and median absolute deviation (M) methods show a linear trend with similar slopes (Fig.~\ref{fig:hqmlow}) that overpredict the variance with respect to the half 84th-16th percentile distance (H) method, whereas the propagation (P) method tends to underpredict the errors. Furthermore, errors estimated using the Q method show a larger dispersion around the linear trend than the H and M methods. The central limit theorem indicates that as the number of measurements increases, the behavior of the distance errors should settle toward being normally distributed around the correlation trend. Fig.~\ref{fig:comp} shows that for a small but representative sample of galaxies with more than 7 distance measurements, the center and variance of the posterior distribution of each extragalactic distance is best explained using the H method, whereas the less robust P and Q methods under-predict the variance. The M method also under-predicts the variance because it is a robust method, and thus not as sensitive to outliers as methods P and Q, as seen in the case of NGC 1558 in Fig.~\ref{fig:comp}. For the more symmetrical posterior distribution of UGC 12792, the M and Q methods predict the same center and variance. Fig.~\ref{fig:hqp} shows that the Q and P methods underpredict distance errors for galaxies with more than 5 TF distance measurements. Fig.~\ref{fig:qm} shows that method Q underpredicts distance errors with respect to the M method, which again shows a tighter linear correlation due to its robustness. The general correlation between distance and distance error (Figs.~\ref{fig:hqmlow} and \ref{fig:hqp}) means that there is a strong systematic component in the variance of $P(D_G)$, which is expected from the distance modulus to metric distance conversion. To improve visualization, only errors for galaxies with more than 5 TF distance measurements are shown in Figs.~\ref{fig:qm}, \ref{fig:ee}, \ref{fig:predl1}, and \ref{fig:predl2}.
 
 \begin{figure*}
 	\includegraphics[scale=0.7]{hqmlow.png}
@@ -343,8 +343,18 @@ This predictive model may work for other distance determination methods, but a c
 
 \section{Conclusions}
 
-Discrepancy plots should be more widely used. Se plantea un método para predecir con una mayor confianza el error de las medidas que no son reportados para la técnica Tully-Fisher en el catalogo NED-D y que son necesarias para alimentar futuros modelos de inspección y análisis cosmológico.
-- EL método aquí descrito, parte de el hecho que los  datos conocidos (tanto de medida como sus errores )  no se comportan necesariamente bajo una distribución normal.
+Discrepancy plots should be more widely used for Bayesian model checking.\\
+
+We propose two methods for estimating in a natural and robust way the error in extragalactic distance determination in multi-measurement, multi-method catalogs such as NED-D, HyperLEDA, and Cosmicflows-3.\\
+
+Errors estimated using our methods (H,M) should be used in future precision cosmology studies. Method H gives errors that represent most faithfully the variance of the probability distribution of a galaxy being at a certain distance. Method M should be used whenever the study requires to give less weight to (outdated, or possibly wrong) outliers.\\
+
+Catalog-wide models of distance errors need to consider the variance of extrgalactic distance error.\\
+
+We have produced error tables using the H,P,Q and M methods for the three catalogs NED-D, HyperLEDA, and Cosmicflows-3 for future reference (in appendix and in repository). People can choose their preferred method as they please.
+
+%Nagging thought: Do bootstrap and stuff with single-measurement errors? There is a lot of bias as well... Do a couple of plots in dataviz.
+% Change repo location (better name).
 
 \section*{Acknowledgements}
 
@@ -409,6 +419,17 @@ HyperLEDA has 2473 distance measurements without reported errors for 1073 galaxi
     \label{fig:predhl2}
 \end{figure*}
 \section{Estimation of errors for Cosmicflows-3}
+The Extragalactic Distance Database (EDD) of Cosmicflows-3, which has the most up-to-date calibrated distance measurements using the TF, FP, SNIa methods for more than 17000 galaxies. We estimated errros for the approximately 10\% of them which have more than one reported distance, using the methods described in Section~\ref{sec:comp}. Fig.~\ref{fig:low} shows that the P method, which is the suggested method in \citet{cosmicflows}, overpredicts errors with respect to the H method for galaxies with 2 distance measurements, as was the case for the errors of HyperLEDA. For galaxies with more than 2 distance measurements, Fig.~\ref{fig:CF3high} the P method underpredicts the errors with respect to the H method. Even though the M, H, and Q methods show a similar trend with distance, the Q method has a significantly larger scatter around this trend. We compiled the estimated errors in a companion table to the Cosmicflows-3 EDD database and in a similar format, in the file called \texttt{cf3\_bootstrap\_results.csv} in the repository for this work. The fields in this table are:
+\begin{itemize}
+\item \texttt{pgc} - Principal Galaxies Catalog ID number.
+\item \texttt{Name} - Object name according to the Cosmicflows-3 database, where available.
+\item \texttt{meas} - Number of distance measurements.
+\item \texttt{D (Mpc)} - For single distance measurements, this is the metric distance derived from the distance modulus. For $N>1$, this is the median of the posterior distribution of the corresponding extragalactic distance.
+\item \texttt{H (Mpc)} - Error estimated using the H method. For $N=1$ this field is set to 0.
+\item \texttt{M (Mpc)} - Error estimated using the M method. For $N=1$ this field is set to 0.
+\item \texttt{P (Mpc)} - Error estimated using the P method. For $N=1$ this is calculated using the error propagation of the distance modulus error.
+\item \texttt{Q (Mpc)} - Error estimated using the Q method. For $N=1$ this field is set to 0.
+\end{itemize}
 \begin{figure*}
 	\includegraphics[scale=0.7]{CF3low.png}
     \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with 2 redshift-independent distance measurements in Cosmicflows-3 according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
@@ -419,11 +440,29 @@ HyperLEDA has 2473 distance measurements without reported errors for 1073 galaxi
     \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with more than 2 redshift-independent distance measurements in Cosmicflows-3 according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
     \label{fig:CF3high}
 \end{figure*}
-\section{Estimation of errors for Cosmicflows-3}
-%Don't forget  abstract. Change repo location (better name).
+\section{Estimation of errors for NED-D}
+The NASA/IPAC extragalactic distance catalog NED-D has $\sim280000$ distance measurements with reported errors for $\sim180000$ galaxies. We estimated the errors for the $\sim13000$ galaxies with more than one distance measurement. Fig.~\ref{fig:Nlow} shows that for galaxies with a low ($N<6$) number of distance measurements, the Q method has the largest scatter around the general trend with distance. Fig.~\ref{fig:Nhigh} shows that the P and Q methods underpredict errors for galaxies with more than 5 distance measurements. The database of errors for NED-D is in the file called \texttt{ned\_bootstrap\_results.csv} and contains the information corresponding to the following fields:
+\begin{itemize}
+\item \texttt{Galaxy ID} - Object name according to the Cosmicflows-3 database, where available.
+\item \texttt{meas} - Number of distance measurements.
+\item \texttt{D (Mpc)} - For single distance measurements, this is the metric distance derived from the distance modulus. For $N>1$, this is the median of the posterior distribution of the corresponding extragalactic distance.
+\item \texttt{H (Mpc)} - Error estimated using the H method. For $N=1$ this field is set to 0.
+\item \texttt{M (Mpc)} - Error estimated using the M method. For $N=1$ this field is set to 0.
+\item \texttt{P (Mpc)} - Error estimated using the P method. For $N=1$ this is calculated using the error propagation of the distance modulus error.
+\item \texttt{Q (Mpc)} - Error estimated using the Q method. For $N=1$ this field is set to 0.
+\end{itemize}
+\begin{figure*}
+	\includegraphics[scale=0.7]{Nlow.png}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with less than 6 redshift-independent distance measurements in NED-D according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
+    \label{fig:Now}
+\end{figure*}
+\begin{figure*}
+	\includegraphics[scale=0.7]{Nhigh.png}
+    \caption{Median extragalactic distance vs. predicted extragalactic distance errors for galaxies with more than 5 redshift-independent distance measurements in NED-D according to the H, M, Q, P error models, showing a linear regression and confidence intervals computed using the \texttt{seaborn.regplot} Python function.}
+    \label{fig:Nhigh}
+\end{figure*}
 %NED-D per-method error - neglect missing errors for galaxies that have other TF measurements with reported error.
 %generative per-method HQMP plots for NED-D? put them all in one page - overkill?
-%cite number of methods per catalog?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\citep[e.g.][]{photred1}.
